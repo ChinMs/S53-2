@@ -2,16 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<link rel="stylesheet" href="/book11-15/Public/css/main.css" type="text/css" media="screen, projection" /> <!-- main stylesheet -->
-<link rel="stylesheet" type="text/css" media="all" href="/book11-15/Public/css/tipsy.css" /> <!-- Tipsy implementation -->
+<link rel="stylesheet" href="/book/Public/css/main.css" type="text/css" media="screen, projection" /> <!-- main stylesheet -->
+<link rel="stylesheet" type="text/css" media="all" href="/book/Public/css/tipsy.css" /> <!-- Tipsy implementation -->
 
 <!--[if lt IE 9]>
 	<link rel="stylesheet" type="text/css" href="css/ie8.css" />
 <![endif]-->
 
-<script type="text/javascript" src="/book11-15/Public/scripts/jquery-1.7.2.min.js"></script> <!-- uiToTop implementation -->
-<script type="text/javascript" src="/book11-15/Public/scripts/custom-scripts.js"></script>
-<script type="text/javascript" src="/book11-15/Public/scripts/jquery.tipsy.js"></script> <!-- Tipsy -->
+<script type="text/javascript" src="/book/Public/scripts/jquery-1.7.2.min.js"></script> <!-- uiToTop implementation -->
+<script type="text/javascript" src="/book/Public/scripts/custom-scripts.js"></script>
+<script type="text/javascript" src="/book/Public/scripts/jquery.tipsy.js"></script> <!-- Tipsy -->
 
 <script type="text/javascript">
 
@@ -46,7 +46,7 @@ $(window).load(function(){
 <!-- Universal preloader -->
 <div id="universal-preloader">
     <div class="preloader">
-        <img src="/book11-15/Public/images/universal-preloader.gif" alt="universal-preloader" class="universal-preloader-preloader" />
+        <img src="/book/Public/images/universal-preloader.gif" alt="universal-preloader" class="universal-preloader-preloader" />
     </div>
 </div>
 <!-- Universal preloader -->
@@ -100,7 +100,7 @@ $(window).load(function(){
         	Don't worry! I'm on it!
         </p>
         <p class="dog-bubble">
-        	I wish I had a cookie<br /><img style="margin-top:8px" src="/book11-15/Public/images/cookie.png" alt="cookie" />
+        	I wish I had a cookie<br /><img style="margin-top:8px" src="/book/Public/images/cookie.png" alt="cookie" />
         </p>
         <p class="dog-bubble">
         	<br />
@@ -118,7 +118,7 @@ $(window).load(function(){
             OK, I'm officially lost now...
         </p>
         <p class="dog-bubble">
-        	I think I saw a <br /><img style="margin-top:8px" src="/book11-15/Public/images/cat.png" alt="cat" />
+        	I think I saw a <br /><img style="margin-top:8px" src="/book/Public/images/cat.png" alt="cat" />
         </p>
         <p class="dog-bubble">
         	What are we supposed to be looking for, anyway? @_@

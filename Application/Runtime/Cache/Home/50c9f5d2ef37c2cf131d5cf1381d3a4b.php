@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<title>登录</title>
-		<link rel="stylesheet" href="/book11-15/Public/css/resetd.css" />
-		<link rel="stylesheet" href="/book11-15/Public/css/commond.css" />
+		<link rel="stylesheet" href="/book/Public/css/resetd.css" />
+		<link rel="stylesheet" href="/book/Public/css/commond.css" />
 	</head>
-	<body style="background:url('/book11-15/Public/images/Home/Login/logo_bg.jpg')">
+	<body style="background:url('/book/Public/images/Home/Login/logo_bg.jpg')">
 		<div class="user_menu">
 			
 
@@ -63,7 +63,7 @@
 			</div>
 		</div>
 				</div>
-		<script type="text/javascript" src="/book11-15/Public/js/jquery.mind.js" ></script>
-		<script type="text/javascript" src="/book11-15/Public/js/commond.js" ></script>
+		<script type="text/javascript" src="/book/Public/js/jquery.mind.js" ></script>
+		<script type="text/javascript" src="/book/Public/js/commond.js" ></script>
 	</body>
 </html>

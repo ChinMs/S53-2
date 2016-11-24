@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
     <title>网站信息</title>  
-    <link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/book11-15/Public/my.css">
-    <script src="/book11-15/Public/js/jquery.js"></script>
-    <script src="/book11-15/Public/js/pintuer.js"></script>  
+    <link rel="stylesheet" href="/book/Public/css/pintuer.css">
+    <link rel="stylesheet" href="/book/Public/css/admin.css">
+    <link rel="stylesheet" href="/book/Public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/book/Public/my.css">
+    <script src="/book/Public/js/jquery.js"></script>
+    <script src="/book/Public/js/pintuer.js"></script>  
 </head>
 <body>
 <form method="get" action="<?php echo U('search');?>" id="listform">
@@ -48,8 +48,8 @@
                     <?php else: ?>启用<?php endif; ?></td>
                 <td><?php echo (date('Y-m-d H:i:s',$vo["addtime"])); ?></td>
                 <td> 
-                    <?php if($data['picname'] == '' ): ?><img src="/book11-15/Public/images/Home/User/head0.png"  width="50" height="50" alt="">
-                    <?php else: ?><img src="/book11-15/Public/images/user_img/<?php echo ($data["picname"]); ?>"  width="50" height="50" alt=""><?php endif; ?>
+                    <?php if($data['picname'] == '' ): ?><img src="/book/Public/images/Home/User/head0.png"  width="50" height="50" alt="">
+                    <?php else: ?><img src="/book/Public/images/user_img/<?php echo ($data["picname"]); ?>"  width="50" height="50" alt=""><?php endif; ?>
                 </td>
                 <td><?php echo ($vo["integ"]); ?></td>
                 <td><div class="button-group"> <a class="button border-main" href='<?php echo U("edit?id=$vo[id]");?>'><span class="icon-edit"></span> 修改</a> <a class="button border-red" href='<?php echo U("del?id=$vo[id]");?>' ><span class="icon-trash-o"></span> 删除</a> </div></td>
@@ -61,8 +61,8 @@
     </div>
 </div>
 </form>
-<script src="/book11-15/Public/js/jquery.min.js"></script>
-<script src="/book11-15/Public/js/bootstrap.min.js"></script>
+<script src="/book/Public/js/jquery.min.js"></script>
+<script src="/book/Public/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
 

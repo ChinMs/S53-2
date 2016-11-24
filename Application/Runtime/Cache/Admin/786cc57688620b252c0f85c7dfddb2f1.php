@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-<link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-<script src="/book11-15/Public/js/jquery.js"></script>
-<script src="/book11-15/Public/js/pintuer.js"></script>
+<link rel="stylesheet" href="/book/Public/css/pintuer.css">
+<link rel="stylesheet" href="/book/Public/css/admin.css">
+<script src="/book/Public/js/jquery.js"></script>
+<script src="/book/Public/js/pintuer.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
@@ -27,7 +27,7 @@
     </tr>
    <?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
       <td><?php echo ($vo["id"]); ?></td>     
-      <td><img src="/book11-15/Public/images/Admin/Actlink/s_<?php echo ($vo["picname"]); ?>" alt="" width="120" height="50" /></td>     
+      <td><img src="/book/Public/images/Admin/Actlink/s_<?php echo ($vo["picname"]); ?>" alt="" width="120" height="50" /></td>     
       <td><?php echo ($vo["title"]); ?></td>
       <td><?php echo ($vo["url"]); ?></td>
       <td><div class="button-group">

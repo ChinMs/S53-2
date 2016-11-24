@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-<link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-<script src="/book11-15/Public/js/jquery.js"></script>
-<script src="/book11-15/Public/js/pintuer.js"></script>
+<link rel="stylesheet" href="/book/Public/css/pintuer.css">
+<link rel="stylesheet" href="/book/Public/css/admin.css">
+<script src="/book/Public/js/jquery.js"></script>
+<script src="/book/Public/js/pintuer.js"></script>
 <style>
   .inputstyle{
     width: 144px;

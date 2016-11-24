@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
     <title>网站信息</title>  
-    <link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-    <!-- <link rel="stylesheet" href="/book11-15/Public/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="/book11-15/Public/my.css">
-    <script src="/book11-15/Public/js/jquery.js"></script>
-    <script src="/book11-15/Public/js/pintuer.js"></script>  
+    <link rel="stylesheet" href="/book/Public/css/pintuer.css">
+    <link rel="stylesheet" href="/book/Public/css/admin.css">
+    <!-- <link rel="stylesheet" href="/book/Public/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="/book/Public/my.css">
+    <script src="/book/Public/js/jquery.js"></script>
+    <script src="/book/Public/js/pintuer.js"></script>  
 </head>
 <body>
 <form method="get" action="<?php echo U('search');?>" id="listform">
@@ -48,8 +48,8 @@
     </div>
 </div>
 </form>
-<script src="/book11-15/Public/js/jquery.min.js"></script>
-<script src="/book11-15/Public/js/bootstrap.min.js"></script>
+<script src="/book/Public/js/jquery.min.js"></script>
+<script src="/book/Public/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
 

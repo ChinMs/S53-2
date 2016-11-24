@@ -2,19 +2,19 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/book11-15/Public/css/1.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/3.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/6.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/7.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/8.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/swiper3.07.min.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/public.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/index.css"/>
-	<script src="/book11-15/Public/js/jquery-1.11.2.min.js"></script>
-	<script src="/book11-15/Public/js/myfocus-2.0.1.min.js"></script>
-	<script src="/book11-15/Public/js/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/3.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/8.css"/>	
+    <link rel="stylesheet" type="text/css" href="/book/Public/css/1.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/3.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/6.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/7.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/8.css"/>
+	<link rel="stylesheet" href="/book/Public/css/swiper3.07.min.css"/>
+	<link rel="stylesheet" href="/book/Public/css/public.css"/>
+	<link rel="stylesheet" href="/book/Public/css/index.css"/>
+	<script src="/book/Public/js/jquery-1.11.2.min.js"></script>
+	<script src="/book/Public/js/myfocus-2.0.1.min.js"></script>
+	<script src="/book/Public/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="/book/Public/3.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/8.css"/>
 	<script>
 		myFocus.set({
 			id:'picBOX',//焦点图盒子ID
@@ -84,7 +84,7 @@
 		#press:hover{box-shadow: 0px 0px 0px 2px #74C677 inset;}
 	</style>
 
-	<title><?php echo ($title); ?></title>
+	<title><?php echo ($content); ?></title>
 </head>
 <body>
 <div class="top" id="item4">
@@ -102,7 +102,7 @@
 			<?php else: ?>
 				<li><a href="<?php echo Mybook/index;?>"><?php echo ($user_name); ?></a></li>
 				<li><a href="<?php echo U('Login/logout');?>">退出</a></li><?php endif; ?>
-			<li><a href="<?php echo U('Index/shoppingcart');?>">购物车</a></li>
+			<li><a href="<?php echo U('Car/car');?>">购物车</a></li>
 			<li><a href="#">意见反馈</a></li>
 			<li><a href="" style="border: none">消息</a></li>
 		</ul>
@@ -113,7 +113,7 @@
 	<div class="container clearfix">
 		<div style="width:1090px;height:92px;margin:auto;">
 		<div class="logo fl">
-			<a href="#"><img src="/book11-15/Public/images/Home/baidu.png" alt=""/></a>
+			<a href="#"><img src="/book/Public/images/Home/baidu.png" alt=""/></a>
 		</div>
 		<div class="seacher fl">
 			<!-- 搜索 -->
@@ -160,7 +160,7 @@
 
 
 		<div class="mm fl clearfix">
-			<img src="/book11-15/Public/images/Home/11.jpg" alt="">
+			<img src="/book/Public/images/Home/11.jpg" alt="">
 		</div>
 		</div>
 	</div>
@@ -189,9 +189,10 @@
 
 </div>
 
-	<div class="clearfix" style="widht:100%;">
+
+	<div class="clearfix" style="width:100%;">
 		<div class="about fl" style="width:370px;height:285px;margin-left:50px;">
-			<img src="/book11-15/Public/images/Home/top_bg_9.png" alt="" style="width:370px;height:285px"/>
+			<img src="/book/Public/images/Home/top_bg_9.png" alt="" style="width:370px;height:285px"/>
 
 		</div>
 		<div class="focus fl" style="height:285px;">
@@ -199,7 +200,7 @@
 				<!--<div class="loading"><img src="js/mf-pattern/img/loading.gif" alt="请稍候..." /></div>--><!--载入画面(可删除)-->
 				<div class="pic" ><!--内容列表(li数目可随意增减)-->
 						<ul >
-							<?php if(is_array($actlink)): $i = 0; $__LIST__ = $actlink;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="<?php echo ($vo["url"]); ?>"><img src="/book11-15/Public/images/Admin/Actlink/<?php echo ($vo["picname"]); ?>" thumb="12" alt="<?php echo ($vo["title"]); ?>" text="卖书" height="285"/></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+							<?php if(is_array($actlink)): $i = 0; $__LIST__ = $actlink;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="<?php echo ($vo["url"]); ?>"><img src="/book/Public/images/Admin/Actlink/<?php echo ($vo["picname"]); ?>" thumb="12" alt="<?php echo ($vo["title"]); ?>" text="卖书" height="285"/></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 						</ul>
 
 				</div>
@@ -210,9 +211,9 @@
 	
 <div class="aa">
 	<div class="sbox">
-		<a href="" style="margin-left: -50px;"><img src="/book11-15/Public/images/Home/a1.jpg" alt=""></a>
-		<a href="" style="margin-left:40px;"><img src="/book11-15/Public/images/Home/a2.jpg" alt=""></a>
-		<a href="" style="margin-left:40px;"><img src="/book11-15/Public/images/Home/a3.jpg" alt=""></a>
+		<a href="" style="margin-left: -50px;"><img src="/book/Public/images/Home/a1.jpg" alt=""></a>
+		<a href="" style="margin-left:40px;"><img src="/book/Public/images/Home/a2.jpg" alt=""></a>
+		<a href="" style="margin-left:40px;"><img src="/book/Public/images/Home/a3.jpg" alt=""></a>
 	</div>
 </div>
 
@@ -220,7 +221,7 @@
 		<h1>热门推荐</h1>
 		<div class="book clearfix" style="margin: 0 auto;width: 85%;border-bottom:1px solid #E0E1E1;">
 			<?php if(is_array($hot)): $i = 0; $__LIST__ = $hot;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dl>
-				<dt style="border:none;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><img src="/book11-15/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="110px" height="160px" alt="" style="border-radius: 0.5em 0.5em 1em / 0.5em 0.5em;"></a></dt>
+				<dt style="border:none;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><img src="/book/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="110px" height="160px" alt="" style="border-radius: 0.5em 0.5em 1em / 0.5em 0.5em;"></a></dt>
 					<dd>
 						<p> style="height:38px;"<a href="#"><?php echo ($vo["bookname"]); ?></a></p>
 						<p>价格：￥<?php echo ($vo["price"]); ?></p>
@@ -232,7 +233,7 @@
 		<h1>新书上线</h1>
 		<div class="book clearfix" style="margin: 0 auto;width: 85%;">
 			<?php if(is_array($new)): $i = 0; $__LIST__ = $new;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dl>
-					<dt style="border:none;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><img src="/book11-15/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="110px" height="160px" alt=""></a></dt>
+					<dt style="border:none;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><img src="/book/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="110px" height="160px" alt=""></a></dt>
 					<dd >
 						<p style="height:38px;"><a href="#"><?php echo ($vo["bookname"]); ?></a></p>
 						<p>价格：￥<?php echo ($vo["price"]); ?></p>
@@ -244,7 +245,7 @@
 		<h1>经典推荐</h1>
 		<div class="book clearfix" style="margin: 0 auto;width: 85%;">
 			<?php if(is_array($jindian)): $i = 0; $__LIST__ = $jindian;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dl>
-					<dt style="border:none;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><img src="/book11-15/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="110px" height="160px" alt=""></a></dt>
+					<dt style="border:none;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><img src="/book/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="110px" height="160px" alt=""></a></dt>
 					<dd>
 						<p style="height:38px;"><a href="#"><?php echo ($vo["bookname"]); ?></a></p>
 						<p>价格：￥<?php echo ($vo["price"]); ?></p>
@@ -257,14 +258,14 @@
 		<center><h1>出版社</h1></center>
 		<div class="fl" style="margin-top:10px;width:472px;border-top:1px solid #eaeaea;border-left:1px solid #eaeaea">
 			<?php if(is_array($press)): $i = 0; $__LIST__ = $press;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="fl demo1" id="press" data-id="<?php echo ($vo["id"]); ?>" data-name="<?php echo ($vo["name"]); ?>">
-				<img src="/book11-15/Public/images/Admin/Press/<?php echo ($vo["picname"]); ?>" alt="" title="<?php echo ($vo["name"]); ?>" style="margin-top:15px;margin-left:20px" width="120px" height="45px" >
+				<img src="/book/Public/images/Admin/Press/<?php echo ($vo["picname"]); ?>" alt="" title="<?php echo ($vo["name"]); ?>" style="margin-top:15px;margin-left:20px" width="120px" height="45px" >
 				</div><?php endforeach; endif; else: echo "" ;endif; ?>
 		</div>
 		<div class="fl" style="margin-top:10px;width:514px;height:255px;border:1px solid #eaeaea;border-left:none">
 			<p id="pressname" style="padding: 23px 0 17px 38px;font-size: 16px;color:#444;">理想国出版社</p>
 			<span id="pressbook">
 			<?php if(is_array($pressbook)): $i = 0; $__LIST__ = $pressbook;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="fl" style="width:110px;text-align: center;margin-left: 18px;margin-top:18px;">
-				<a href="<?php echo U('Detail/index',array('id'=>$vo['id']));?>" target="_blank"><img src="/book11-15/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="86px" height="122px" style="border-radius: 0.5em 0.5em 1em / 0.5em 0.5em;" alt=""></a>
+				<a href="<?php echo U('Detail/index',array('id'=>$vo['id']));?>" target="_blank"><img src="/book/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" width="86px" height="122px" style="border-radius: 0.5em 0.5em 1em / 0.5em 0.5em;" alt=""></a>
 				<p style="display:block;height:30px;line-height:30px;"><a href="<?php echo U('Detail/index',array('id'=>$vo['id']));?>" target="_blank"><?php echo ($vo["bookname"]); ?></a></p>
 			</div><?php endforeach; endif; else: echo "" ;endif; ?>
 			</span>

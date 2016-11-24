@@ -19,7 +19,7 @@
   </div>
   <div class="head-l"><a class="button button-little bg-green" href="" target="_blank"><span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;<a href="<{:U('Index/clear')}>" class="button button-little bg-blue"><span class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red" href="<{:U('Login/login')}>"><span class="icon-power-off"></span> 退出登录</a> </div>
 </div>
-<div class="leftnav">
+<div class="leftnav" style="overflow-y: auto;overflow-x: hidden;">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
   <ul style="display:block">
     <li>
@@ -78,17 +78,20 @@
       <li><a href="<{:U('Books/index')}>" target="right"><span class="icon-caret-right"></span>书籍列表</a></li>
       <li><a href="<{:U('Books/add')}>" target="right"><span class="icon-caret-right"></span>书籍添加</a></li>
     </ul></li>  
-<li>
+    <li>  
       <h2><span class="icon-pencil-square-o"></span>积分管理</h2>
-    <ul>
-      <li><a href="<{:U('Integ/index')}>" target="right"><span class="icon-caret-right"></span>积分管理</a></li>
-    </ul></li>  
+      <ul>
+        <li><a href="<{:U('Integ/index')}>" target="right"><span class="icon-caret-right"></span>积分管理</a></li>
+      </ul>
+    </li>  
     
- <li><h2><span class="icon-pencil-square-o"></span>出版社管理</h2>
-    <ul>
-      <li><a href="<{:U('Press/index')}>" target="right"><span class="icon-caret-right"></span>出版社列表</a></li>
-      <li><a href="<{:U('Press/add')}>" target="right"><span class="icon-caret-right"></span>出版社添加</a></li>
-    </ul></li>   
+    <li>
+       <h2><span class="icon-pencil-square-o"></span>出版社管理</h2>
+      <ul>
+        <li><a href="<{:U('Press/index')}>" target="right"><span class="icon-caret-right"></span>出版社列表</a></li>
+        <li><a href="<{:U('Press/add')}>" target="right"><span class="icon-caret-right"></span>出版社添加</a></li>
+      </ul>
+    </li>
 
     <li>
       <h2><span class="icon-pencil-square-o"></span>订单管理</h2>

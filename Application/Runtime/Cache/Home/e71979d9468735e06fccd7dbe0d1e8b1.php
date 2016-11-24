@@ -6,18 +6,17 @@
 <meta name="viewport" content="width=1280">
 
 <title>我的图书_百度阅读</title>
-
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/css_core_31a0946.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/pkg_ydcommon_base_78541af.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/drop_ax_722c12d.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/pkg_ydcommon_yui_0c10806.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/cashier_c907a59.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/top_reco_bb02634.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/myBook_7edfe30.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/read_uc_layout_5ad92f6.css"/>
-<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/lanrenzhijia.css"/>
-<script src="/book11-15/Public/js/jquery.min.js"></script>
-<script src="/book11-15/Public/js/jquery.cookie.js"></script>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/css_core_31a0946.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/pkg_ydcommon_base_78541af.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/drop_ax_722c12d.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/pkg_ydcommon_yui_0c10806.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/cashier_c907a59.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/top_reco_bb02634.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/myBook_7edfe30.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/read_uc_layout_5ad92f6.css"/>
+<link rel="stylesheet" type="text/css" href="/book/Public/css/lanrenzhijia.css"/>
+<script src="/book/Public/js/jquery.min.js"></script>
+<script src="/book/Public/js/jquery.cookie.js"></script>
 <style type="text/css">
     body, input {
         font-family: '微软雅黑';
@@ -231,11 +230,11 @@
                                   <input type="submit" class="s-submit" value="搜索图书" />
                             </form>
                         <div class="hot-search-list">
-                            <a href="" target="_blank" class="hot-search mr10">龙应台</a>
-                            <a href="" target="_blank" class="hot-search mr10">南有乔木</a>
-                            <a href="" target="_blank" class="hot-search mr10">后宫如懿传</a>
-                            <a href="" target="_blank" class="hot-search mr10">法医秦明</a>
-                            <a href="" target="_blank" class="hot-search mr10">如若有你，一生何求</a>
+                            <?php if(is_array($hisbook)): $i = 0; $__LIST__ = $hisbook;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$his): $mod = ($i % 2 );++$i;?><a href="<?php echo ($his["id"]); ?>" target="_blank" class="hot-search mr10"><?php echo ($his["bookname"]); ?></a>
+                                <!-- <a href="" target="_blank" class="hot-search mr10">南有乔木</a>
+                                <a href="" target="_blank" class="hot-search mr10">后宫如懿传</a>
+                                <a href="" target="_blank" class="hot-search mr10">法医秦明</a>
+                                <a href="" target="_blank" class="hot-search mr10">如若有你，一生何求</a> --><?php endforeach; endif; else: echo "" ;endif; ?>
                         </div>
                     </div>
                     <div class="read-userbar-wp">
@@ -243,13 +242,13 @@
                             <li class="ub-li ub-li-mybook">
                                 <span class="ub-border"></span>
                                 <a target="_blank"  href="" class="ub-item ub-item-mybook j_ub-drop-toggle">
-                                    <span class="ub-txt">阳光的钱家大少</span>
+                                    <span class="ub-txt"><?php echo (session('user_name')); ?></span>
                                     <span class="arr"></span>
                                 </a>
                                 <ul class="ub-drop j_ub-drop">
-                                    <li><a target="_blank" href="">我的订单</a></li>
-                                    <li class="line"><a target="_blank" href="">账号设置</a></li>
-                                    <li class="exit line"><a href="">退出</a></li>
+                                    <li><a target="_blank" href="<?php echo U('Mybook/bookorder');?>">我的订单</a></li>
+                                    <li class="line"><a target="_blank" href="<?php echo U('Mybook/infoself');?>">账号设置</a></li>
+                                    <li class="exit line"><a href="<?php echo U('Login/logout');?>">退出</a></li>
                                 </ul>
                             </li>
                             <li class="ub-li ub-li-cart">
@@ -318,62 +317,64 @@
         <div class="aside">
           <div class="user-card">
                 <a href="<?php echo U('infoSelf', array('id'=>'1'));?>">
-                    <?php if($picname == ''): ?><img class="user-avatar" src="/book11-15/Public/images/x.jpg" alt="阳光的钱家大少">
+                    <?php if($picname == ''): ?><img class="user-avatar" src="/book/Public/images/x.jpg" alt="阳光的钱家大少">
                         <?php else: ?>
-                        <img class="user-avatar" src="/book11-15/Public/images/user_img/<?php echo ($picname); ?>" alt="阳光的钱家大少"><?php endif; ?>
+                        <img class="user-avatar" src="/book/Public/images/user_img/<?php echo ($picname); ?>" alt="阳光的钱家大少"><?php endif; ?>
                 </a>
                 <div class="user-info">
                   <a href="<?php echo U('infoSelf', array('id'=>'1'));?>" class="user-uname">阳光的钱家大少</a>
                 </div>
             </div>
             <ul class="uc-nav">
-                <li><a class="current" href="">我的图书</a></li>
-                <li><a class="" href="">我的订单</a></li>
+                <li><a class="current" href="<?php echo U('bookShelf', array('id'=>'1'));?>">我的图书</a></li>
+                <li><a class="" href="<?php echo U('bookorder');?>">我的订单</a></li>
                 <li><a class="" href="">我的积分</a></li>
             </ul>
         </div>
         <div class="main">
-        <block name="info">
-          <div class="right-main-container" data-csrf_sign="1310557914">
-            <div class="books-title-select">
-              <div class="books-part-btns">
-                <div class="one-part-btn bg-hide" id="all">
-                  <a href="<?php echo U('bookShelf', array('id'=>'1'));?>">全部(<?php echo ($count); ?>)</a>
-                </div>
-                <div class="one-part-btn bg-hide" id="payed">
-                  <a href="<?php echo U('purchased', array('id'=>'1'));?>">已购买(<?php echo ($purchased); ?>)</a>
-                </div>
-                <div class="one-part-btn bg-hide" id="collect">
-                  <a href="<?php echo U('collected', array('id'=>'1'));?>">已收藏(<?php echo ($collected); ?>)</a>
-                </div>
-              </div>
-            </div>
-            <block name="main">
-            <div class="books-container"><!--这里是添加收藏的图书的-->
-              <?php if($books == null): ?><div class="no-item-bg">
-                    <a target="_blank" href=""><div class="select-book-btn"></div></a>
-                </div><?php endif; ?>
-                <?php if(is_array($books)): foreach($books as $key=>$v): ?><div class="one-book-item" <?php if($v == null): ?>style="display:none"<?php endif; ?>>
-                    <div class="cover-img-container ">
-                        <a title="<?php echo ($v["bookname"]); ?>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="<?php echo ($v["picname"]); ?>"></a>
+            <block name="bookorder">
+            <block name="info">
+              <div class="right-main-container" data-csrf_sign="1310557914">
+                <div class="books-title-select">
+                  <div class="books-part-btns">
+                    <div class="one-part-btn bg-hide" id="all">
+                      <a href="<?php echo U('bookShelf', array('id'=>'1'));?>">全部(<?php echo ($count); ?>)</a>
                     </div>
-                    <span class="book-name">
-                        <a title="<?php echo ($v["bookname"]); ?>" target="_blank" href=""><?php echo ($v["bookname"]); ?></a>
-                    </span>
-                    <span class="book-copr">
-                    </span>
-                    <span class="book-state">
-                        <?php if($v["state"] == '0'): ?>已收藏的
-                            <?php elseif($v["state"] == '1'): ?>已购买的<?php endif; ?>
-                    </span>
-                    <a class="del-book-btn" title="删除" href="<?php echo U('Mybook/delShelf',array('book_id'=>$v['id'],'user_id'=>'1'));?>"><img class="book-dele-icon" src="/book11-15/Public/images/delbook.png"></a>
-                </div><?php endforeach; endif; ?>
-            </div><!--books-container-->
-            <div id="page">
-                <?php echo ($page); ?>
-            </div>
-            
-          </div><!--right-main-container-->
+                    <div class="one-part-btn bg-hide" id="payed">
+                      <a href="<?php echo U('purchased', array('id'=>'1'));?>">已购买(<?php echo ($purchased); ?>)</a>
+                    </div>
+                    <div class="one-part-btn bg-hide" id="collect">
+                      <a href="<?php echo U('collected', array('id'=>'1'));?>">已收藏(<?php echo ($collected); ?>)</a>
+                    </div>
+                  </div>
+                </div>
+                <block name="main">
+                <div class="books-container"><!--这里是添加收藏的图书的-->
+                  <?php if($books == null): ?><div class="no-item-bg">
+                        <a target="_blank" href=""><div class="select-book-btn"></div></a>
+                    </div><?php endif; ?>
+                    <?php if(is_array($books)): foreach($books as $key=>$v): ?><div class="one-book-item" <?php if($v == null): ?>style="display:none"<?php endif; ?>>
+                        <div class="cover-img-container ">
+                            <a title="<?php echo ($v["bookname"]); ?>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="<?php echo ($v["picname"]); ?>"></a>
+                        </div>
+                        <span class="book-name">
+                            <a title="<?php echo ($v["bookname"]); ?>" target="_blank" href=""><?php echo ($v["bookname"]); ?></a>
+                        </span>
+                        <span class="book-copr">
+                        </span>
+                        <span class="book-state">
+                            <?php if($v["state"] == '0'): ?>已收藏的
+                                <?php elseif($v["state"] == '1'): ?>已购买的<?php endif; ?>
+                        </span>
+                        <a class="del-book-btn" title="删除" href="<?php echo U('Mybook/delShelf',array('book_id'=>$v['id'],'user_id'=>'1'));?>"><img class="book-dele-icon" src="/book/Public/images/delbook.png"></a>
+                    </div><?php endforeach; endif; ?>
+                </div><!--books-container-->
+                <div id="page">
+                    <?php echo ($page); ?>
+                </div>
+                
+              </div><!--right-main-container-->
+            </block>
         </block>
         </div><!--main-->
       </div><!--body-->

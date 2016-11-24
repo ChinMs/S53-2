@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo ($title); ?></title>
-    <link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/book11-15/Public/my.css">
-    <script src="/book11-15/Public/js/jquery.js"></script>
-    <script src="/book11-15/Public/js/pintuer.js"></script>  
+    <link rel="stylesheet" href="/book/Public/css/pintuer.css">
+    <link rel="stylesheet" href="/book/Public/css/admin.css">
+    <link rel="stylesheet" href="/book/Public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/book/Public/my.css">
+    <script src="/book/Public/js/jquery.js"></script>
+    <script src="/book/Public/js/pintuer.js"></script>  
 </head>
 <body>
 

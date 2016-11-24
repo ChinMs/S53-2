@@ -2,19 +2,19 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/book11-15/Public/css/1.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/3.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/6.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/7.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/8.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/swiper3.07.min.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/public.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/index.css"/>
-	<script src="/book11-15/Public/js/jquery-1.11.2.min.js"></script>
-	<script src="/book11-15/Public/js/myfocus-2.0.1.min.js"></script>
-	<script src="/book11-15/Public/js/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/3.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/8.css"/>	
+    <link rel="stylesheet" type="text/css" href="/book/Public/css/1.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/3.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/6.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/7.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/8.css"/>
+	<link rel="stylesheet" href="/book/Public/css/swiper3.07.min.css"/>
+	<link rel="stylesheet" href="/book/Public/css/public.css"/>
+	<link rel="stylesheet" href="/book/Public/css/index.css"/>
+	<script src="/book/Public/js/jquery-1.11.2.min.js"></script>
+	<script src="/book/Public/js/myfocus-2.0.1.min.js"></script>
+	<script src="/book/Public/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="/book/Public/3.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/8.css"/>
 	<script>
 		myFocus.set({
 			id:'picBOX',//焦点图盒子ID
@@ -84,7 +84,7 @@
 		#press:hover{box-shadow: 0px 0px 0px 2px #74C677 inset;}
 	</style>
 
-	<title><?php echo ($title); ?></title>
+	<title><?php echo ($content); ?></title>
 </head>
 <body>
 <div class="top" id="item4">
@@ -102,7 +102,7 @@
 			<?php else: ?>
 				<li><a href="<?php echo Mybook/index;?>"><?php echo ($user_name); ?></a></li>
 				<li><a href="<?php echo U('Login/logout');?>">退出</a></li><?php endif; ?>
-			<li><a href="<?php echo U('Index/shoppingcart');?>">购物车</a></li>
+			<li><a href="<?php echo U('Car/car');?>">购物车</a></li>
 			<li><a href="#">意见反馈</a></li>
 			<li><a href="" style="border: none">消息</a></li>
 		</ul>
@@ -113,7 +113,7 @@
 	<div class="container clearfix">
 		<div style="width:1090px;height:92px;margin:auto;">
 		<div class="logo fl">
-			<a href="#"><img src="/book11-15/Public/images/Home/baidu.png" alt=""/></a>
+			<a href="#"><img src="/book/Public/images/Home/baidu.png" alt=""/></a>
 		</div>
 		<div class="seacher fl">
 			<!-- 搜索 -->
@@ -160,7 +160,7 @@
 
 
 		<div class="mm fl clearfix">
-			<img src="/book11-15/Public/images/Home/11.jpg" alt="">
+			<img src="/book/Public/images/Home/11.jpg" alt="">
 		</div>
 		</div>
 	</div>
@@ -188,6 +188,7 @@
 <div class="read-hd-ad">
 
 </div>
+
 
     <style>
         .swiper-container {
@@ -248,16 +249,16 @@
 <div class="cms-block">
 <div class="bd">
 <a href="#" target="_blank" class="mb10">
-<img src="/book11-15/Public/images/Home/1.jpeg" alt="" title="">
+<img src="/book/Public/images/Home/1.jpeg" alt="" title="">
 </a>
 <a href="http://#" target="_blank" class="mb10">
-<img src="/book11-15/Public/images/Home/2.jpg" alt="" title="">
+<img src="/book/Public/images/Home/2.jpg" alt="" title="">
 </a>
 <a href="#" target="_blank" class="mb10">
-<img src="/book11-15/Public/images/Home/3.jpg" alt="" title="">
+<img src="/book/Public/images/Home/3.jpg" alt="" title="">
 </a>
 <a href="#" target="_blank" class="mb10">
-<img src="/book11-15/Public/images/Home/4.jpg" alt="" title="">
+<img src="/book/Public/images/Home/4.jpg" alt="" title="">
 </a>
 </div>
 </div>
@@ -274,7 +275,7 @@
 <div class="img-block mb20">
 <a class="doc-info-imglink go-read-page" href="//yuedu.baidu.com/ebook/cc1d000c974bcf84b9d528ea81c758f5f61f2934?pn=1">
 
-<img class="doc-info-img" src="/book11-15/Public/images/Admin/Books/<?php echo ($data["picname"]); ?>" width="200px" height="270px" style="border-radius: 0.5em 0.5em 1em / 0.5em 0.5em;" alt="" />
+<img class="doc-info-img" src="/book/Public/images/Admin/Books/<?php echo ($data["picname"]); ?>" width="200px" height="270px" style="border-radius: 0.5em 0.5em 1em / 0.5em 0.5em;" alt="" />
 </a>
 </div>
 <div class="doc-op-wrap">
@@ -588,8 +589,8 @@ $(function(){
             <?php if(is_array($comment)): $i = 0; $__LIST__ = $comment;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="comment-list-item ">
                     <div class="comment-pic-wrap">
                         <div class="img-down-wp">
-                            <?php if(($vo["picname"] == null)): ?><img class="img-down" src="/book11-15/Public/images/Home/head0.png">
-                            <?php else: ?><img class="img-down" src="/book11-15/Public/images/user_img/<?php echo ($vo["picname"]); ?>"><?php endif; ?>
+                            <?php if(($vo["picname"] == null)): ?><img class="img-down" src="/book/Public/images/Home/head0.png">
+                            <?php else: ?><img class="img-down" src="/book/Public/images/user_img/<?php echo ($vo["picname"]); ?>"><?php endif; ?>
                             <span class="author-circle"></span>
                             
                         </div>
@@ -651,9 +652,9 @@ $(function(){
                             <div class="reply-items">
                                     <div class="reply-pic-wrap">
                                         <div class="img-down-wp">
-                                            <?php if($v["picname"] == null): ?><img class="img-down" src="/book11-15/Public/images/Home/head0.png">
+                                            <?php if($v["picname"] == null): ?><img class="img-down" src="/book/Public/images/Home/head0.png">
                                             <?php else: ?>
-                                            <img class="img-down" src="/book11-15/Public/images/user_img/<?php echo ($v["picname"]); ?>"><?php endif; ?>
+                                            <img class="img-down" src="/book/Public/images/user_img/<?php echo ($v["picname"]); ?>"><?php endif; ?>
                                                     <span class="author-circle"></span>
                                                 
                                             </div>
@@ -727,8 +728,8 @@ $(function(){
 <div class="user-icon-wp">
 <div class="user-icon">
 <div class="user-icon-mask"></div>
-<img src="<?php if($plimg == null): ?>/book11-15/Public/images/Home/head0.png
-    <?php else: ?>/book11-15/Public/images/user_img/<?php echo ($plimg); endif; ?>" alt="" class="user-icon-pic">
+<img src="<?php if($plimg == null): ?>/book/Public/images/Home/head0.png
+    <?php else: ?>/book/Public/images/user_img/<?php echo ($plimg); endif; ?>" alt="" class="user-icon-pic">
 <span class="author-circle"></span>
 </div>
 </div>

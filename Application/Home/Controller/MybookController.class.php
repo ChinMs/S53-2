@@ -9,73 +9,60 @@ class MybookController extends HomeController
         $this->display();
     }
 
-    public function search()
-    {
-        if (empty($_POST)) {
-            $this->redirect('Mybook/mybook');
-            exit;
-        }
-        $bookname = I('post.param1');
-        // var_dump($bookname);
-        $where['bookname'] = array('like' ,'%'.$bookname.'%');
-        $data = M('book')->where($where)
-                      ->getField('id ,bookname',7);
-      if ($data) {
-        $this->ajaxReturn($data);
-      }
-    }
+    /*
+     *  我的订单页面
+     *  用户的id   $userid
+     *  用户的订单   $order
+     */
+    public function bookorder()
+    {   
 
-    public function searchBook()
-    {
-        if (empty($_POST)) {
-        $this->redirect('Mybook/mybook');
-        exit;
-        }
-        $id = I('post.id/d');
-        if ($id || $id == 0) {
-            /*
-            * where $map[]
-            * table book type author press
-            * field 
-            */
-            $map[] = 'b.type_id = t.id';
-            $map[] = 'b.author_id = a.id';
-            $map[] = 'b.press_id = p.id';
-            $map[] = "b.id = $id";
-            $list = M('book')->table('bk_book as b,bk_type as t,bk_author as a,bk_press as p')
-                            ->field('b.id,b.bookname,b.descr,b.price,b.state,t.name as tname,a.name as aname,p.name as pname')
-                            ->where($map)
+        $userid = $_SESSION['user_id']; // 这里使用的是session中的用户id
+
+        // 根据用户的ID查询用户所拥有的订单
+        $orders = M('orders')->where("user_id = $userid")
+                            ->order('id desc')
+                            ->limit($Page->firstRow.','.$Page->listRows)
                             ->select();
-            // echo M('book')->getLastSql();
-            var_dump($list);
-            if ($list) {    
-                $this->assign('list',$list);
-                $this->display('Mybook/mybook');
-            } else {
-                // $this->assign('error','没有该书');
-                $this->display('Mybook/mybook');
-            }
-        }
-        
-        if (empty($id)) {
-            
+        // 用户订单的总数
+        $order_count = count($orders);
+        // 实例化分页
+        $Page = new \Think\Page($order_count, 9);
+
+        // 循环遍历出用户的订单信息形成新的数组
+        foreach ($orders as $key => $value) {
+            $order[$key]['id'] = $value['id'];
+            $order[$key]['buytime'] = $value['buytime'];
+            $order[$key]['money'] = $value['money'];
+            $order[$key]['state'] = $value['state'];
+            $order[$key]['detail'] = M('detail')->where("order_id = ".$value['id']."")->select();
         }
 
+        // 分页显示输出
+        $show = $Page->show();
+        $array = array(
+            'order' =>  $order,
+            'page'  =>  $show
+            );
+        $this->assign($array);
+        $this->display();
     }
+    
     /*
     *   书架中所有的书籍
-     */
+    */
     public function bookShelf()
     {
-        if (empty($_GET)) {
-            $this->redirect('Mybook/mybook');
+        if (empty($_SESSION['user_id'])) {
+            $this->display('Login/login');
             exit;
         }
         // 用户名下收藏的书籍
-        $userid = I('get.id/d');
+        $userid = $_SESSION['user_id'];
         $book = M('bookshelf');
         $map[] = 'bs.book_id = bb.id';
         $map[] = "bs.user_id =  $userid";
+
 
         // 用户名下书籍的总数
         $count = $book->table('bk_bookshelf as bs,bk_book as bb')
@@ -94,7 +81,7 @@ class MybookController extends HomeController
                                 ->count();
 
         // 实例化pagel类
-        $Page = new \Think\Page($count, 15);
+        $Page = new \Think\Page($count, 9);
         $result = $book->table('bk_bookshelf as bs,bk_book as bb')
                       ->field('bb.id,bb.bookname,bb.picname,bs.state')
                       ->where($map)
@@ -106,6 +93,14 @@ class MybookController extends HomeController
         $list = $user->find($userid);
         // 分页显示输出
         $show = $Page->show();
+
+        // 用户的浏览记录
+        $his = M('history')->field('book_id')->where("user_id = $userid")->select();
+        if (!empty($his)) {
+            $hisbook = M('book')->order('id desc')->field('id,bookname')->select($his);
+            // var_dump($hisbook);
+            // $this->assign('hisbook', $hisbook);
+        }
         // 输出到前台模板上
         $array['books'] = $result;
         $array['count'] = $count;
@@ -113,6 +108,7 @@ class MybookController extends HomeController
         $array['collected'] = $count_collected;
         $array['picname'] = $list['picname'];
         $array['page'] = $show;
+        $array['hisbook'] = $hisbook;
         if ($result) {
             $this->assign($array);
             $this->display('Mybook/mybook');
@@ -126,13 +122,22 @@ class MybookController extends HomeController
      */
     public function purchased()
     {
-        if (empty($_GET)) {
-            $this->redirect('Mybook/mybook');
+        if (empty($_SESSION['user_id'])) {
+            $this->display('Login/login');
             exit;
         }
         // 用户名下收藏的书籍
-        $userid = I('get.id/d');
+        $userid = $_SESSION['user_id'];
         $book = M('bookshelf');
+
+        // 用户的浏览记录
+        $his = M('history')->field('book_id')->where("user_id = $userid")->select();
+        if (!empty($his)) {
+            $hisbook = M('book')->order('id desc')->field('id,bookname')->select($his);
+            // var_dump($hisbook);
+            // $this->assign('hisbook', $hisbook);
+            // $this->display('Mybook/purchased');
+        }
 
         // 用户名下已购买的书籍的总数
         $purchased['user_id'] = array('eq', $userid);
@@ -174,7 +179,7 @@ class MybookController extends HomeController
         $array['picname'] = $list['picname'];
         $array['purchased'] = $count_purchased;
         $array['collected'] = $count_collected;
-
+        $array['hisbook'] = $hisbook;
         if ($result) {
             $this->assign($array);
             $this->display('Mybook/purchased');
@@ -188,13 +193,20 @@ class MybookController extends HomeController
      */
     public function collected()
     {
-        if (empty($_GET)) {
-            $this->redirect('Mybook/mybook');
+        if (empty($_SESSION['user_id'])) {
+            $this->display('index');
             exit;
         }
         // 用户名下收藏的书籍
-        $userid = I('get.id/d');
+        $userid = $_SESSION['user_id'];
         $book = M('bookshelf');
+
+        // 用户的浏览记录
+        $his = M('history')->field('book_id')->where("user_id = $userid")->select();
+        if (!empty($his)) {
+            $hisbook = M('book')->order('id desc')->field('id,bookname')->select($his);
+        }
+
 
         // 用户名下已购买的书籍的总数
         $purchased['user_id'] = array('eq', $userid);
@@ -237,19 +249,21 @@ class MybookController extends HomeController
         $array['picname'] = $list['picname'];
         $array['purchased'] = $count_purchased;
         $array['collected'] = $count_collected;
+        $array['hisbook'] = $hisbook;
         $show = $Page->show();
         if ($result) {
             $this->assign($array);
             $this->display('Mybook/collected');
         } else {
-            $this->assign('books', $result);
+            $this->assign($array);
             $this->display('Mybook/collected');
         }
     }
-
+    /*
+    *   从收藏中删除收藏的书籍
+     */
     public function delShelf()
     {
-        // var_dump($_GET['id']);
         if (empty($_GET['book_id'])) {
             $this->redirect('Mybook/mybook');
             exit;
@@ -270,18 +284,19 @@ class MybookController extends HomeController
 
     public function infoSelf()
     {
-        if (IS_GET) {
-            $id = I('get.id/d');
-            // var_dump($id);
-            $map['id'] = array('eq', $id);
-            $data = M('user')->where($map)->select();
-            // var_dump($data);
-            $this->assign('picname', $data['0']['picname']);
-            $this->assign('infomation',$data);
-            $this->display('Mybook/infoself');
-        }
-    }
 
+        $id = $_SESSION['user_id'];
+        // var_dump($id);
+        $map['id'] = array('eq', $id);
+        $data = M('user')->where($map)->select();
+        // var_dump($data);
+        $this->assign('picname', $data['0']['picname']);
+        $this->assign('infomation',$data);
+        $this->display('Mybook/infoself');
+    }
+    /*
+    *   短信验证功能
+     */
      public function message()
     {   
         $phone = I('post.param1');
@@ -313,36 +328,138 @@ class MybookController extends HomeController
             //TODO 添加成功处理逻辑
         }
     }
+    /*
+    *   邮箱验证
+     */
+    public function php_email()
+    {
+        $email = I('post.param1');
+        $rand = rand(1000,9999);
+        if(SendMail($email,'百度验证码','<h3>您正在进行邮箱绑定,本次的验证码为：<span style="font-size:20px;color:green">'.$rand.'</span></h3>')){
+            // $this->success();
+            $this->ajaxReturn($rand);
+         }
+    }
 
+    /*
+    *   添加邮箱
+     */
+    public function addEmail()
+    {   
+        $id = I('post.id/d');
+        $email = I('post.email');
+        $yzm = I('post.yzm');
+        $reyzm = I('post.reyzm');
+
+        if ($email == null) {
+            $this->error('邮箱不能为空!','',1);
+            exit;
+        }
+
+        $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
+         if (preg_match($pattern, $email)){
+            if ($yzm == null) {
+                    $this->error('验证码不能为空!','',1);
+                    exit;
+                }elseif($yzm === $reyzm) {
+                    $user = M('user');
+                    $map['id'] = array('eq' ,$id);
+                    $result = $user->where($map)
+                        ->setField('email',$email);
+                    if ($result) {
+                        $this->success('绑定成功');
+                    }else{
+                        $this->error('验证码或邮箱不能为空!');
+                    }
+                }else{
+                    $this->error('验证码码不匹配!','',1);
+                }
+        } else {  
+            $this->error('请输入正常的邮箱地址!');
+        }
+    }
+
+    // 添加手机号码
     public function addPhone()
     {   
         if (empty($_POST)) {
             $this->redirect('Mybook/infoself');
             exit;
         }
-
+        // var_dump($_POST);
+        // exit;
         $id = I('post.id/d');
         $phone = I('post.phone');
         $yzm = I('post.yzm');
         $reyzm = I('post.reyzm');
-        // var_dump($id);
-        // var_dump($phone);
-        // var_dump($yzm);
-        // var_dump($reyzm);
-        // $this->display('Mybook/infoself');
-        if ($yzm == $reyzm) {
-            $user = M('user');
-            $map['id'] = array('eq' ,$id);
-            $result = $user->where($map)
-                ->setField('phone',$phone);
-            if ($result) {
-                $this->success('绑定成功');
+        if ($phone == null) {
+            $this->error('手机号码不能为空!','',1);
+            exit;
+        }
+
+        if(preg_match("/^1[34578]{1}\d{9}$/",$phone)){
+            if ($yzm == null) {
+                $this->error('验证码不能为空!','',1);
+                exit;
+            }elseif($yzm === $reyzm) {
+                $user = M('user');
+                $map['id'] = array('eq' ,$id);
+                $result = $user->where($map)
+                    ->setField('phone',$phone);
+                if ($result) {
+                    $this->success('绑定成功');
+                }else{
+                    $this->error('验证码或手机号不能为空!');
+                }
             }else{
-                $this->error();
+                $this->error('验证码码不匹配!','',1);
             }
+        }else{  
+            $this->error('请输入正常的手机号码!');
+        } 
+    }
+
+    // 更换手机号码
+    public function chaPhone()
+    {   
+        if (empty($_POST)) {
+            $this->redirect('Mybook/infoself');
+            exit;
+        }
+        // var_dump($_POST);
+        // exit;
+        $id = I('post.id/d');
+        $phone = I('post.phone');
+        $yzm = I('post.yzm');
+        $reyzm = I('post.reyzm');
+        if ($phone == null) {
+            $this->error('手机号码不能为空!','',1);
+            exit;
+        }
+
+        if(preg_match("/^1[34578]{1}\d{9}$/",$phone)){
+            if ($yzm == null) {
+                $this->error('验证码不能为空!','',1);
+                exit;
+            }elseif($yzm === $reyzm) {
+                $user = M('user');
+                $map['id'] = array('eq' ,$id);
+                $result = $user->where($map)
+                    ->setField('phone',$phone);
+                if ($result) {
+                    $this->success('绑定成功');
+                }else{
+                    $this->error('验证码或手机号不能为空!');
+                }
+            }else{
+                $this->error('验证码码不匹配!','',1);
+            }
+        }else{  
+            $this->error('请输入正常的手机号码!');
         }
     }
 
+    // 更改个人信息
     public function changed()
     {
         if (empty($_POST)) {
@@ -374,6 +491,7 @@ class MybookController extends HomeController
         }
     }
 
+    // 用户头像上传
     public function upload()
     {
         $upload = new \Think\Upload();// 实例化上传类

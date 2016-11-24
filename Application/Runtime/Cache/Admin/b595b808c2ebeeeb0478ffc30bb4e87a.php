@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
     <title><?php echo ($title); ?></title>  
-    <link rel="stylesheet" type="text/css" href="/book11-15/Public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-    <link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-    <script src="/book11-15/Public/js/jquery.js"></script>   
-    <script src="/book11-15/Public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/book/Public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/book/Public/css/pintuer.css">
+    <link rel="stylesheet" href="/book/Public/css/admin.css">
+    <script src="/book/Public/js/jquery.js"></script>   
+    <script src="/book/Public/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color:#f2f9fd;">
 <div class="header bg-main">
   <div class="logo margin-big-left fadein-top">
-    <h1><img src="/book11-15/Public/images/Admin/Admin/<?php echo ($_SESSION['picname']); ?>" class="radius-circle rotate-hover" height="50" alt="" />管理员:<?php echo ($_SESSION['username']); ?></h1>
+    <h1><img src="/book/Public/images/Admin/Admin/<?php echo ($_SESSION['picname']); ?>" class="radius-circle rotate-hover" height="50" alt="" />管理员:<?php echo ($_SESSION['username']); ?></h1>
   </div>
   <div class="head-l"><a class="button button-little bg-green" href="" target="_blank"><span class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;<a href="<?php echo U('Index/clear');?>" class="button button-little bg-blue"><span class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red" href="<?php echo U('Login/login');?>"><span class="icon-power-off"></span> 退出登录</a> </div>
 </div>
-<div class="leftnav">
+<div class="leftnav" style="overflow-y: auto;overflow-x: hidden;">
   <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
   <ul style="display:block">
     <li>

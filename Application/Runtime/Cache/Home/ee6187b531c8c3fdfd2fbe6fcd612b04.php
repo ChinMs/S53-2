@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>注册</title>
-      <link rel="stylesheet" href="/book11-15/Public/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/book11-15/Public/css/resetd.css" />
-		<link rel="stylesheet" href="/book11-15/Public/css/commond.css" />
+      <link rel="stylesheet" href="/book/Public/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/book/Public/css/resetd.css" />
+		<link rel="stylesheet" href="/book/Public/css/commond.css" />
 	</head>
-	<body style="background:url('/book11-15/Public/images/Home/Login/logo_bg.jpg')">
+	<body style="background:url('/book/Public/images/Home/Login/logo_bg.jpg')">
 		<div class="wrap login_wrap">
 			<div class="content">
 				
@@ -77,8 +77,8 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="/book11-15/Public/js/jquery.min.js" ></script>
-		<script type="text/javascript" src="/book11-15/Public/js/common.js" ></script>
+		<script type="text/javascript" src="/book/Public/js/jquery.min.js" ></script>
+		<script type="text/javascript" src="/book/Public/js/common.js" ></script>
 		 <script type="text/javascript"charset="utf-8">
 
 
@@ -130,7 +130,7 @@
               } 
               settime();
 
-              $.get("/book11-15/index.php/Home/Reg/crecap?phone="+phone,function(b){
+              $.get("/book/index.php/Home/Reg/crecap?phone="+phone,function(b){
                     hand=b;    
                 });
             });
@@ -178,7 +178,7 @@
               return u = false;
               }else
               {
-                $.get("/book11-15/index.php/Home/Reg/regname?name="+name,function(b){
+                $.get("/book/index.php/Home/Reg/regname?name="+name,function(b){
                     // console.log(b);
 
                     if(b){
@@ -265,5 +265,5 @@
 
             </script>
 	</body>
-      <script src="/book11-15/Public/js/bootstrap.min.js"></script>
+      <script src="/book/Public/js/bootstrap.min.js"></script>
 </html>

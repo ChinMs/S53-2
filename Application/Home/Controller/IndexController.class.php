@@ -4,6 +4,7 @@ use Think\Controller;
 class IndexController extends HomeController {
 
     public function index(){
+
         $actlink = M('actlink')->select();
         $hot = M('book')->field('id,bookname,price,picname')->order('click desc')->limit('12')->select();
         $new = M('book')->field('id,bookname,price,picname')->order('addtime desc')->limit('12')->select();

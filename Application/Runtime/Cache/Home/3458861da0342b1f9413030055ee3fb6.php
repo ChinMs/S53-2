@@ -2,19 +2,19 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/book11-15/Public/css/1.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/3.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/6.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/7.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/css/8.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/swiper3.07.min.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/public.css"/>
-	<link rel="stylesheet" href="/book11-15/Public/css/index.css"/>
-	<script src="/book11-15/Public/js/jquery-1.11.2.min.js"></script>
-	<script src="/book11-15/Public/js/myfocus-2.0.1.min.js"></script>
-	<script src="/book11-15/Public/js/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/3.css"/>
-	<link rel="stylesheet" type="text/css" href="/book11-15/Public/8.css"/>	
+    <link rel="stylesheet" type="text/css" href="/book/Public/css/1.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/3.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/6.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/7.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/css/8.css"/>
+	<link rel="stylesheet" href="/book/Public/css/swiper3.07.min.css"/>
+	<link rel="stylesheet" href="/book/Public/css/public.css"/>
+	<link rel="stylesheet" href="/book/Public/css/index.css"/>
+	<script src="/book/Public/js/jquery-1.11.2.min.js"></script>
+	<script src="/book/Public/js/myfocus-2.0.1.min.js"></script>
+	<script src="/book/Public/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="/book/Public/3.css"/>
+	<link rel="stylesheet" type="text/css" href="/book/Public/8.css"/>
 	<script>
 		myFocus.set({
 			id:'picBOX',//焦点图盒子ID
@@ -84,7 +84,7 @@
 		#press:hover{box-shadow: 0px 0px 0px 2px #74C677 inset;}
 	</style>
 
-	<title><?php echo ($title); ?></title>
+	<title><?php echo ($content); ?></title>
 </head>
 <body>
 <div class="top" id="item4">
@@ -102,7 +102,7 @@
 			<?php else: ?>
 				<li><a href="<?php echo Mybook/index;?>"><?php echo ($user_name); ?></a></li>
 				<li><a href="<?php echo U('Login/logout');?>">退出</a></li><?php endif; ?>
-			<li><a href="<?php echo U('Index/shoppingcart');?>">购物车</a></li>
+			<li><a href="<?php echo U('Car/car');?>">购物车</a></li>
 			<li><a href="#">意见反馈</a></li>
 			<li><a href="" style="border: none">消息</a></li>
 		</ul>
@@ -113,7 +113,7 @@
 	<div class="container clearfix">
 		<div style="width:1090px;height:92px;margin:auto;">
 		<div class="logo fl">
-			<a href="#"><img src="/book11-15/Public/images/Home/baidu.png" alt=""/></a>
+			<a href="#"><img src="/book/Public/images/Home/baidu.png" alt=""/></a>
 		</div>
 		<div class="seacher fl">
 			<!-- 搜索 -->
@@ -160,7 +160,7 @@
 
 
 		<div class="mm fl clearfix">
-			<img src="/book11-15/Public/images/Home/11.jpg" alt="">
+			<img src="/book/Public/images/Home/11.jpg" alt="">
 		</div>
 		</div>
 	</div>
@@ -188,6 +188,7 @@
 <div class="read-hd-ad">
 
 </div>
+
 
 	<style>
 		#product-type>li:hover{
@@ -252,7 +253,7 @@
 			<div id="catecontent">
 				<?php if(($state != 1) AND ($state != 2)): ?><ul class="one" id="product-type">
 						<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li style="float:left;width:240px;text-align:left;background-color: rgb(245, 244, 242); border-color: rgb(237, 237, 237);">
-								<a href='<?php echo U("Product/product?typeid=$vo[id]");?>' ><?php echo ($vo["name"]); ?><b class="ic ic-arrow" style="background:url(/book11-15/Public/images/Home/get_1457fb0.png) no-repeat;float:right;margin-top:13px;margin-right:13px;"></b> </a><!--一级分类-->
+								<a href='<?php echo U("Product/product?typeid=$vo[id]");?>' ><?php echo ($vo["name"]); ?><b class="ic ic-arrow" style="background:url(/book/Public/images/Home/get_1457fb0.png) no-repeat;float:right;margin-top:13px;margin-right:13px;"></b> </a><!--一级分类-->
 								<ul class="two" style="z-index:360;">
 									<?php if(is_array($vo[child])): $i = 0; $__LIST__ = $vo[child];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$val): $mod = ($i % 2 );++$i;?><li style="width:120px;float:left;padding-left:20px;color:#333"><a href='<?php echo U("Product/product?typeid=$val[id]");?>'><?php echo ($val["name"]); ?></a></li><!--二级分类--><?php endforeach; endif; else: echo "" ;endif; ?>
 								</ul>
@@ -269,23 +270,23 @@
 							</li><?php endforeach; endif; else: echo "" ;endif; ?>
 					</ul><?php endif; ?>
 			</div>
-			<img src="/book11-15/Public/images/Home/1.jpeg" width="245px" alt="" style="margin-top:20px;">
-			<img src="/book11-15/Public/images/Home/2.jpg" width="245px" alt="" style="margin-top:10px;">
-			<img src="/book11-15/Public/images/Home/3.jpg" width="245px" alt="" style="margin-top:10px;">
-			<img src="/book11-15/Public/images/Home/4.jpg" width="245px" alt="" style="margin-top:10px;">
+			<img src="/book/Public/images/Home/1.jpeg" width="245px" alt="" style="margin-top:20px;">
+			<img src="/book/Public/images/Home/2.jpg" width="245px" alt="" style="margin-top:10px;">
+			<img src="/book/Public/images/Home/3.jpg" width="245px" alt="" style="margin-top:10px;">
+			<img src="/book/Public/images/Home/4.jpg" width="245px" alt="" style="margin-top:10px;">
 		</div>
 		<div class="book fr" style="height:auto;" id="tablelist">
 			<p id="typep"><a href="<?php echo U('Index/index');?>">百度阅读</a> ＞ <a href="<?php echo U('Product/index');?>">全部图书</a> <?php if($state == 1): ?>＞ <?php echo ($ftypename); elseif($state == 2): ?>＞ <a href="<?php echo U('Product/cate',array('id'=>$ptypeid));?>"><?php echo ($ftypename); ?></a> ＞ <?php echo ($sonname); else: endif; ?></p>
 			<span style="background-color:#F5F5F2;width:97%;height:40px;margin:2% 0 0 1%;display:block;">
 				<ul class="paixu" >
-					<li><a href='<?php echo U($url,array("condition"=>"click","typeid"=>"$typeid"));?>'>热度&nbsp;<img src="/book11-15/Public/images/Home/down-hei.png" width="10px" alt="" /></a></li>
-					<li><a href='<?php echo U($url,array("condition"=>"addtime","typeid"=>"$typeid"));?>'>最新&nbsp;<img src="/book11-15/Public/images/Home/down-hui.png" width="10px" alt="" /></a></li>
-					<li><a href='<?php echo U($url,array("condition"=>"self","typeid"=>"$typeid"));?>'>销量&nbsp;<img src="/book11-15/Public/images/Home/down-hui.png" width="10px" alt="" /></a></li>
-					<li><a href='<?php echo U($url,array("condition"=>"price","typeid"=>"$typeid"));?>'>价格&nbsp;<img src="/book11-15/Public/images/Home/down-hui.png" width="10px" alt="" /></a></li>
+					<li><a href='<?php echo U($url,array("condition"=>"click","typeid"=>"$typeid"));?>'>热度&nbsp;<img src="/book/Public/images/Home/down-hei.png" width="10px" alt="" /></a></li>
+					<li><a href='<?php echo U($url,array("condition"=>"addtime","typeid"=>"$typeid"));?>'>最新&nbsp;<img src="/book/Public/images/Home/down-hui.png" width="10px" alt="" /></a></li>
+					<li><a href='<?php echo U($url,array("condition"=>"self","typeid"=>"$typeid"));?>'>销量&nbsp;<img src="/book/Public/images/Home/down-hui.png" width="10px" alt="" /></a></li>
+					<li><a href='<?php echo U($url,array("condition"=>"price","typeid"=>"$typeid"));?>'>价格&nbsp;<img src="/book/Public/images/Home/down-hui.png" width="10px" alt="" /></a></li>
 				</ul>
 			</span>
 			<?php if(is_array($book)): $i = 0; $__LIST__ = $book;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dl>
-				<dt style="border:none;width:140px;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>' target="_blank"><img src="/book11-15/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" alt="" width="134" height="179"/></a></dt>
+				<dt style="border:none;width:140px;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>' target="_blank"><img src="/book/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" alt="" width="134" height="179"/></a></dt>
 				<dd>
 					<p style="height:38px;"><a href='<?php echo U("Detail/index?id=$vo[id]");?>'><?php echo ($vo["bookname"]); ?></a></p>
 					<p>&nbsp;</p>

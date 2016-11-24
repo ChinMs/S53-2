@@ -14,7 +14,7 @@
 	<script src="__PUBLIC__/js/myfocus-2.0.1.min.js"></script>
 	<script src="__PUBLIC__/js/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="__PUBLIC__/3.css"/>
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/8.css"/>	
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/8.css"/>
 	<script>
 		myFocus.set({
 			id:'picBOX',//焦点图盒子ID
@@ -84,7 +84,7 @@
 		#press:hover{box-shadow: 0px 0px 0px 2px #74C677 inset;}
 	</style>
 </block>
-	<title><{$title}></title>
+	<title><{$content}></title>
 </head>
 <body>
 <div class="top" id="item4">
@@ -104,7 +104,7 @@
 				<li><a href="<{:Mybook/index}>"><{$user_name}></a></li>
 				<li><a href="<{:U('Login/logout')}>">退出</a></li>
 			</if>
-			<li><a href="<{:U('Index/shoppingcart')}>">购物车</a></li>
+			<li><a href="<{:U('Car/car')}>">购物车</a></li>
 			<li><a href="#">意见反馈</a></li>
 			<li><a href="" style="border: none">消息</a></li>
 		</ul>
@@ -191,8 +191,9 @@
 <div class="read-hd-ad">
 
 </div>
+
 <block name="main" >
-	<div class="clearfix" style="widht:100%;">
+	<div class="clearfix" style="width:100%;">
 		<div class="about fl" style="width:370px;height:285px;margin-left:50px;">
 			<img src="__PUBLIC__/images/Home/top_bg_9.png" alt="" style="width:370px;height:285px"/>
 

@@ -1,0 +1,249 @@
+<extend name="Index/index" />
+<!-- <block name="style"><link rel="stylesheet" type="text/css" href="__PUBLIC__/css/cart_page_46b0a5a.css"/></block> -->
+<!-- <block name="title"><title>我的购物车_百度阅读</title></block> -->
+<block name="main">
+<style>
+    #hd {z-index: 0 !important;}
+    #doc #hd {z-index: 0;}
+    .read-hd {z-index: 0;}
+</style>
+<div class="bd-wrap">
+    <div class="body" style="border: none">
+    <if condition="$list eq null">
+        <div class="empty-cart">
+            <div class="empty-cart-icon"></div>
+            <div class="empty-cart-title">您的购物车为空，赶紧行动吧</div>
+            <a class="empty-cart-link" href="/" target="_blank">去阅读首页看看&gt;&gt;</a>
+        </div>
+    </if>
+    <if condition="$list neq null">
+    <div id="cart-page-wrap" class="cart-page">
+        <div class="cart-hd">
+            <div class="cart-table-hd mb10 clearfix">
+                <span class="th-item item-info">电子书信息</span>
+                <span class="th-item item-price">电子书价格（元）</span>
+                <span class="th-item item-op">操作</span>
+            </div>
+        </div>
+        <div class="cart-bd">
+            <ul class="book-list">
+                <div class="mod books-group js-group-0" data-groupid="0">
+                    <div class="hd group-hd"></div>
+                    <div class="bd group-bd" id="box">
+                    <foreach name="list" item="vli">
+                        <li id="item" class="item-selected">
+                            <div class="mod book-enable">
+                                <div class="bd book-cnt-wrap">
+                                    <!-- <input type="hidden" value="<{$vli.id}>"> -->
+                                    <input type="checkbox" class="selected" name="cartCheckBox" value="<{$vli.id}>" style="margin-right: 10px;" onclick="selectSingle()" checked>
+                                    <a class="book-cover-link" target="_blank" href="" title="<{$vli.bookname}>">
+                                        <img class="book-cover" src="<{$vli.picname}>"> <!--图书的封面-->
+                                    </a>
+                                    <div class="book-title-wrap">
+                                        <a target="_blank" class="book-title" href="<{$vli.bookid}>" title="<{$vli.bookname}>"><{$vli.bookname}></a>
+                                        <span class="book-author">作者：<{$vli.author_name}></span>
+                                    </div>
+                                    <div class="box mod price-wrap" >
+                                        <div class="media " value="<{$vli.price}>">
+                                            <p class="book-price one-line">￥<b><{$vli.price}></b></p>
+                                        </div>
+                                    </div>
+                                    <a class="disable-link" alog-action="delete.book" onclick="solodel(<{$vli.id}>)">删除</a>
+                                </div>
+                            </div>
+                        </li> <!--li的结束-->
+                    </foreach>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="cart-ft">
+            <div class="cart-ft-cnt box ext" style="z-index: auto; position: static; bottom: 0px; top: auto;">
+                <div class="media">
+                    <a class="go-cashier-btn">去支付</a>
+                </div>
+                <div class="content">
+                    <div class="cnt-item select-all-book-wrap">
+                        <input id="allCheckBox" type="checkbox" value="" onclick="selectAll()" checked />
+                        <span class="ml5">全选</span>
+                    </div>
+                    <div class="cnt-item del-select-book-wrap">
+                        <a class="del-select-book" onclick="delselected()">删除选中图书</a>
+                    </div>
+                    <div class="cnt-item selected-book-count-wrap">已选
+                        <span class="rec-color js-selected-count">0</span>本电子书
+                    </div>
+                    <div class="cnt-item cart-ft-total-price">
+                        <p class="rec-color mt5">合计:￥<span class="cart-ft-total-price-txt">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer-fixed" style="display: none; width: 1090px; height: 54px; float: none;"></div>
+        </div>
+    </div> <!--id="cart-page-wrap"-->
+    </if>
+    <div>
+    <style>
+        .ipts {border:none;outline:none;width:90%;color:#999;}
+        .theme-signin li { padding-left:0; margin-bottom: 15px;}
+        .rec-color {padding: 4px 6px;height: 21px;line-height: 21px;}
+        .theme-signin li strong {width: 120px;margin-left: -120px;}
+    </style>
+    <div class="theme-popover3">
+        <div class="theme-poptit3">
+            <a href="javascript:;" title="关闭" class="close3">×</a>
+            <h3>提交订单</h3>
+        </div>
+            <div class="theme-popbod dform" style="height: auto;">
+            <form class="theme-signin" name="loginform" action="<{:U('Car/paying')}>" method="post" style="height: auto;">
+                <ol>
+                    <li>
+                        <strong>所选书籍：</strong>
+                        <div id="book" style="height: 60px;overflow-y: auto;overflow-x: hidden;">
+                            
+                        </div>
+                    </li>
+                    <li>
+                        <strong>支付金额(￥/元)：</strong>
+                        <input type="text" name="total" class="ipts" style="color:orange;font-size: 18px;" readonly/>
+                    </li>
+                    <li>
+                        <strong>支付方式：</strong>
+                        <img src="__PUBLIC__/images/weixin.png" width="150" height="150" alt="微信支付" title="微信支付"/>
+                        <img src="__PUBLIC__/images/zhifu.png" width="150" height="150" alt="支付宝" title="支付宝支付"/>
+                    </li>
+                    <li>
+                        <strong>实付金额(￥/元)：</strong>
+                        <input type="text" name="money" class="ipts" style="color:red;font-size: 20px;" readonly/>
+                    </li>
+                    <li>
+                        <input class="btn btn-primary" type="submit" name="submit" value=" 提 交 " />
+                    </li>
+                </ol>
+           </form>
+         </div>
+    </div>
+    <div class="theme-popover-mask3"  style="z-index: 9999998!important;"></div>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+   var a =  $('.book-title-wrap').find('.book-title');
+   for (var i = 0; i <a.length; i++) {
+       $('#book').append('<input type="hidden" name="id[]" value="'+$(a[i]).attr('href')+'" /><input class="ipts" type="text" name="bookname[]"  value="《'+$(a[i]).html()+'》" readonly /><input type="hidden" name="price[]" value="'+$(a[i]).parent().parent().find('b').html()+'" />');
+   }
+});
+
+$(document).ready(function(){
+    var total = 0;
+    var ipts = $('input[name=cartCheckBox]');
+    if($("input[type='checkbox']").is(':checked')){
+        for(var i=0;i<ipts.length;i++){
+            total = total + parseInt($(ipts[i]).parent().find('b').html());
+        }
+    }
+    $('.cart-ft-total-price-txt').html(total);
+    $('input[name=money]').val(total);
+    $('input[name=total]').val(total);
+
+
+    var len = $("input[type='checkbox']:checked").length - $("#allCheckBox:checked").length;
+
+    $('.js-selected-count').html(len);
+});
+/*点击全选计算总价*/
+$('#allCheckBox').click(function(){
+        var total = 0;
+        var ipts = $('input[name=cartCheckBox]');
+        if($("input[type='checkbox']").is(':checked')){
+            for(var i=0;i<ipts.length;i++){
+                total = total + parseInt($(ipts[i]).parent().find('b').html());
+            }
+        }
+        $('.cart-ft-total-price-txt').html(total);
+});
+
+/*每个点击计算总价格 选中就加，取消选中就减*/
+$('.selected').click(function(){
+    var sum = 0;
+    var ipts = $('input[name=cartCheckBox]');
+    for(var i=0;i<ipts.length;i++){
+        if(ipts[i]['checked'] == true){
+            sum = sum + parseInt($(ipts[i]).parent().find('b').html());
+        }
+    }
+    $('.cart-ft-total-price-txt').html(sum);
+    $('input[name=money]').val(sum);
+    $('input[name=total]').val(sum);
+});
+/*删除单个内容*/
+function solodel(id){
+    $.post("<{:U('Car/solodel')}>", {soloid:id}, function(data){
+        if (data) {
+            window.location.reload();
+        }
+    });
+}
+
+/*删除选中的内容*/
+function delselected(){
+    var a = $('input[name=cartCheckBox]:checked');
+    var arr = [];
+    for (var i=0;i<a.length;i++) {
+       var ai = a[i]['value'];
+       arr.push(ai);
+    }
+
+    $.post("<{:U('Car/delgoods')}>", {param:arr}, function(data){
+        if (data) {
+            window.location.reload();
+        }
+    });
+}
+
+/*复选框全选或全不选效果*/
+function selectAll(){
+    var oInput=document.getElementsByName("cartCheckBox");
+    for (var i=0;i<oInput.length;i++){
+        oInput[i].checked=document.getElementById("allCheckBox").checked;
+    }
+}
+
+
+/*根据单个复选框的选择情况确定全选复选框是否被选中*/
+function selectSingle(){
+    var k=0;
+    var oInput=document.getElementsByName("cartCheckBox");
+     for (var i=0;i<oInput.length;i++){
+       if(oInput[i].checked==false){
+          k=1;
+          break;
+        }
+    }
+    if(k==0){
+        document.getElementById("allCheckBox").checked=true;
+        }
+    else{
+        document.getElementById("allCheckBox").checked=false;
+        }
+}
+
+
+$("input[type='checkbox']").bind("click",function(){
+   var len = $("input[type='checkbox']:checked").length - $("#allCheckBox:checked").length;
+   $('.js-selected-count').html(len);
+}); 
+
+$(document).ready(function($) {
+    $('.go-cashier-btn').click(function(){
+        $('.theme-popover-mask3').fadeIn(100);
+        $('.theme-popover3').slideDown(200);
+    });
+    $('.theme-poptit3 .close3').click(function(){
+        $('.theme-popover-mask3').fadeOut(100);
+        $('.theme-popover3').slideUp(200);
+    });
+});
+
+</script>
+</block>

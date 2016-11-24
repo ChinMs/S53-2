@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=1280">
 
 <block name="title"><title>我的图书_百度阅读</title></block>
-
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/css_core_31a0946.css"/>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/pkg_ydcommon_base_78541af.css"/>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/drop_ax_722c12d.css"/>
@@ -231,11 +230,13 @@
                                   <input type="submit" class="s-submit" value="搜索图书" />
                             </form>
                         <div class="hot-search-list">
-                            <a href="" target="_blank" class="hot-search mr10">龙应台</a>
-                            <a href="" target="_blank" class="hot-search mr10">南有乔木</a>
-                            <a href="" target="_blank" class="hot-search mr10">后宫如懿传</a>
-                            <a href="" target="_blank" class="hot-search mr10">法医秦明</a>
-                            <a href="" target="_blank" class="hot-search mr10">如若有你，一生何求</a>
+                            <volist name="hisbook" id="his">
+                                <a href="<{$his.id}>" target="_blank" class="hot-search mr10"><{$his.bookname}></a>
+                                <!-- <a href="" target="_blank" class="hot-search mr10">南有乔木</a>
+                                <a href="" target="_blank" class="hot-search mr10">后宫如懿传</a>
+                                <a href="" target="_blank" class="hot-search mr10">法医秦明</a>
+                                <a href="" target="_blank" class="hot-search mr10">如若有你，一生何求</a> -->
+                            </volist>
                         </div>
                     </div>
                     <div class="read-userbar-wp">
@@ -243,13 +244,13 @@
                             <li class="ub-li ub-li-mybook">
                                 <span class="ub-border"></span>
                                 <a target="_blank"  href="" class="ub-item ub-item-mybook j_ub-drop-toggle">
-                                    <span class="ub-txt">阳光的钱家大少</span>
+                                    <span class="ub-txt"><{$Think.session.user_name}></span>
                                     <span class="arr"></span>
                                 </a>
                                 <ul class="ub-drop j_ub-drop">
-                                    <li><a target="_blank" href="">我的订单</a></li>
-                                    <li class="line"><a target="_blank" href="">账号设置</a></li>
-                                    <li class="exit line"><a href="">退出</a></li>
+                                    <li><a target="_blank" href="<{:U('Mybook/bookorder')}>">我的订单</a></li>
+                                    <li class="line"><a target="_blank" href="<{:U('Mybook/infoself')}>">账号设置</a></li>
+                                    <li class="exit line"><a href="<{:U('Login/logout')}>">退出</a></li>
                                 </ul>
                             </li>
                             <li class="ub-li ub-li-cart">
@@ -329,58 +330,60 @@
                 </div>
             </div>
             <ul class="uc-nav">
-                <li><a class="current" href="">我的图书</a></li>
-                <li><a class="" href="">我的订单</a></li>
+                <li><a class="current" href="<{:U('bookShelf', array('id'=>'1'))}>">我的图书</a></li>
+                <li><a class="" href="<{:U('bookorder')}>">我的订单</a></li>
                 <li><a class="" href="">我的积分</a></li>
             </ul>
         </div>
         <div class="main">
-        <block name="info">
-          <div class="right-main-container" data-csrf_sign="1310557914">
-            <div class="books-title-select">
-              <div class="books-part-btns">
-                <div class="one-part-btn bg-hide" id="all">
-                  <a href="<{:U('bookShelf', array('id'=>'1'))}>">全部(<{$count}>)</a>
-                </div>
-                <div class="one-part-btn bg-hide" id="payed">
-                  <a href="<{:U('purchased', array('id'=>'1'))}>">已购买(<{$purchased}>)</a>
-                </div>
-                <div class="one-part-btn bg-hide" id="collect">
-                  <a href="<{:U('collected', array('id'=>'1'))}>">已收藏(<{$collected}>)</a>
-                </div>
-              </div>
-            </div>
-            <block name="main">
-            <div class="books-container"><!--这里是添加收藏的图书的-->
-              <if condition="$books eq null">
-                <div class="no-item-bg">
-                    <a target="_blank" href=""><div class="select-book-btn"></div></a>
-                </div>
-              </if>
-                <foreach name="books" item="v">
-                <div class="one-book-item" <if condition="$v eq null">style="display:none"</if>>
-                    <div class="cover-img-container ">
-                        <a title="<{$v.bookname}>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="<{$v.picname}>"></a>
+            <block name="bookorder">
+            <block name="info">
+              <div class="right-main-container" data-csrf_sign="1310557914">
+                <div class="books-title-select">
+                  <div class="books-part-btns">
+                    <div class="one-part-btn bg-hide" id="all">
+                      <a href="<{:U('bookShelf', array('id'=>'1'))}>">全部(<{$count}>)</a>
                     </div>
-                    <span class="book-name">
-                        <a title="<{$v.bookname}>" target="_blank" href=""><{$v.bookname}></a>
-                    </span>
-                    <span class="book-copr">
-                    </span>
-                    <span class="book-state">
-                        <if condition="$v.state eq '0'">已收藏的
-                            <elseif condition="$v.state eq '1'" />已购买的
-                        </if>
-                    </span>
-                    <a class="del-book-btn" title="删除" href="<{:U('Mybook/delShelf',array('book_id'=>$v['id'],'user_id'=>'1'))}>"><img class="book-dele-icon" src="__PUBLIC__/images/delbook.png"></a>
+                    <div class="one-part-btn bg-hide" id="payed">
+                      <a href="<{:U('purchased', array('id'=>'1'))}>">已购买(<{$purchased}>)</a>
+                    </div>
+                    <div class="one-part-btn bg-hide" id="collect">
+                      <a href="<{:U('collected', array('id'=>'1'))}>">已收藏(<{$collected}>)</a>
+                    </div>
+                  </div>
                 </div>
-            </foreach>
-            </div><!--books-container-->
-            <div id="page">
-                <{$page}>
-            </div>
+                <block name="main">
+                <div class="books-container"><!--这里是添加收藏的图书的-->
+                  <if condition="$books eq null">
+                    <div class="no-item-bg">
+                        <a target="_blank" href=""><div class="select-book-btn"></div></a>
+                    </div>
+                  </if>
+                    <foreach name="books" item="v">
+                    <div class="one-book-item" <if condition="$v eq null">style="display:none"</if>>
+                        <div class="cover-img-container ">
+                            <a title="<{$v.bookname}>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="<{$v.picname}>"></a>
+                        </div>
+                        <span class="book-name">
+                            <a title="<{$v.bookname}>" target="_blank" href=""><{$v.bookname}></a>
+                        </span>
+                        <span class="book-copr">
+                        </span>
+                        <span class="book-state">
+                            <if condition="$v.state eq '0'">已收藏的
+                                <elseif condition="$v.state eq '1'" />已购买的
+                            </if>
+                        </span>
+                        <a class="del-book-btn" title="删除" href="<{:U('Mybook/delShelf',array('book_id'=>$v['id'],'user_id'=>'1'))}>"><img class="book-dele-icon" src="__PUBLIC__/images/delbook.png"></a>
+                    </div>
+                </foreach>
+                </div><!--books-container-->
+                <div id="page">
+                    <{$page}>
+                </div>
+                </block>
+              </div><!--right-main-container-->
             </block>
-          </div><!--right-main-container-->
         </block>
         </div><!--main-->
       </div><!--body-->

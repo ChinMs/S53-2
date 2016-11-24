@@ -9,7 +9,7 @@
                 <foreach name="books" item="v">
                 <div class="one-book-item" <if condition="$v eq null">style="display:none"</if>>
                     <div class="cover-img-container ">
-                        <a title="<{$v.bookname}>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="__PUBLIC__/images/Admin/Books/<{$v.picname}>"></a>
+                        <a title="<{$v.bookname}>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="<{$v.picname}>"></a>
                     </div>
                     <span class="book-name">
                         <a title="<{$v.bookname}>" target="_blank" href=""><{$v.bookname}></a>

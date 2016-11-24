@@ -1,0 +1,5 @@
+.box{width: 170px;border: 1px solid #999;color:#000;}
+.slist{list-style: none;margin: 0;padding: 0;}
+.slist li{padding: 2px;}
+.slist li:hover{background: #F0F0F0;cursor: pointer;}
+.bind-box {width:400px;height:150px;border:1px solid #999;display:none;}

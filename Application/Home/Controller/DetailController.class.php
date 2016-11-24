@@ -10,7 +10,6 @@ class DetailController extends HomeController
         }
         $id = I('get.id/d');
 
-        // var_dump($id);die;
         $map['id'] = array('eq',$id);
 
         $data = M('book')->where($map)->find();//查询书本信息

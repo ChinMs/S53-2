@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-<link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-<script src="/book11-15/Public/js/jquery.js"></script>
-<script src="/book11-15/Public/js/pintuer.js"></script>
+<link rel="stylesheet" href="/book/Public/css/pintuer.css">
+<link rel="stylesheet" href="/book/Public/css/admin.css">
+<script src="/book/Public/js/jquery.js"></script>
+<script src="/book/Public/js/pintuer.js"></script>
 <style>
     td{
         text-align: center;
@@ -72,7 +72,7 @@
       <?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
           <td><input type="text"  value="<?php echo ($vo["id"]); ?>" style="width:50px; text-align:center; border:1px solid #ddd; padding:7px 0;" readonly /></td>
           <td><?php echo ($vo["bookname"]); ?></td>
-          <td width="10%"><img src="/book11-15/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" alt="" width="100" height="130" /></td>
+          <td width="10%"><img src="/book/Public/images/Admin/Books/<?php echo ($vo["picname"]); ?>" alt="" width="100" height="130" /></td>
           <td>
             <?php if($vo["state"] == 0): ?><font color="red">下架</font>
             <?php else: ?><font color="#00CC99">上架</font><?php endif; ?>

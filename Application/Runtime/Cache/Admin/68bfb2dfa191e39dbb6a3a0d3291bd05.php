@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="/book11-15/Public/css/pintuer.css">
-<link rel="stylesheet" href="/book11-15/Public/css/admin.css">
-<script src="/book11-15/Public/js/jquery.js"></script>
-<script src="/book11-15/Public/js/pintuer.js"></script>
+<link rel="stylesheet" href="/book/Public/css/pintuer.css">
+<link rel="stylesheet" href="/book/Public/css/admin.css">
+<script src="/book/Public/js/jquery.js"></script>
+<script src="/book/Public/js/pintuer.js"></script>
 </head>
 <body>
 <form method="get" action="<?php echo U('search');?>" id="listform">
@@ -27,7 +27,7 @@
       <?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
           <td><input type="text"  value="<?php echo ($vo["id"]); ?>" style="width:50px; text-align:center; border:1px solid #ddd; padding:7px 0;" readonly /></td>
           <td><?php echo ($vo["name"]); ?></td>
-          <td width="10%"><img src="/book11-15/Public/images/Admin/Press/<?php echo ($vo["picname"]); ?>" alt="" width="100" height="50" /></td>
+          <td width="10%"><img src="/book/Public/images/Admin/Press/<?php echo ($vo["picname"]); ?>" alt="" width="100" height="50" /></td>
         <!--   <td><?php echo (date('Y-m-d H:i:s',$vo["addtime"])); ?></td> -->
           <td><div class="button-group"> <a class="button border-main" href='<?php echo U("edit?id=$vo[id]");?>'><span class="icon-edit"></span> 修改</a> <a class="button border-red" href='<?php echo U("del?id=$vo[id]");?>' ><span class="icon-trash-o"></span> 删除</a> </div></td>
         </tr><?php endforeach; endif; else: echo "" ;endif; ?>
