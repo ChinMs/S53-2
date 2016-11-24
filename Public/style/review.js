@@ -1,0 +1,1 @@
+document.write("<form name='frmreview' method='post' action='/modules/article/reviews.php?aid="+article_id+"' target='_blank'><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name='pcontent' id='pcontent'>喜欢大大的作品，非常喜欢，我会一直一直支持你！</textarea></label><input type='image' name='Submit' src='/style/images/combtn2.jpg' class='sent'/></form>");

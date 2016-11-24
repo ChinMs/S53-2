@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>  
+    <link rel="stylesheet" href="__PUBLIC__/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/pintuer.js"></script>  
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head"><strong class="icon-reorder">评论内容</strong></div>
+    <table class="table table-hover text-center" id="tablelist">
+      <tr>
+        <th width="10%">ID</th>
+        <td><{$vo.id}></td>
+      </tr>
+      <tr>
+        <th width="10%">标题</th>
+        <td><{$vo.title}></td>
+      </tr>
+      <tr>
+        <th width="10%">发布时间</th>
+        <td><{$vo.time|date='Y-m-d H:i:s',###}></td>
+      </tr>
+      <tr>
+        <th width="10%">书名</th>
+        <td><{$vo.bookname}></td>
+      </tr>
+      <tr>
+        <th width="10%" style="line-height:100px;">内容</th>
+        <td height="100px"><{$vo.comment}></td>
+      </tr>
+      <tr>
+        <th width="10%">用户名</th>
+        <td><{$vo.username}></td>
+      </tr>
+      <tr>
+        <th width="10%">状态</th>
+          <td>
+            <if condition="$vo.state eq 2">隐藏</font>
+            <else />显示</font>
+            </if>
+          </td>
+      </tr>
+      <tr>
+        <th width="10%">点赞数</th>
+        <td><{$vo.likenum}></td>
+      </tr>
+      <tr>
+        <th width="10%">回复数</th>
+        <td><{$vo.replynum}></td>
+      </tr>
+      <tr>
+        <th width="10%">操作</th>
+        <td><div class="button-group"> 
+
+          <if condition="$vo.state eq 2">
+            <a class="button border-main" href='<{:U("edit?id=$vo[id]")}>'><span class="icon-edit"></span>显示</a></font>
+          <else />
+          <a class="button border-red" href='<{:U("edit?id=$vo[id]")}>'><span class="icon-edit"></span>隐藏</a></font>
+          </if>
+        </div>
+        </td>
+      </tr>
+        
+      <tr>
+        <td colspan="12"><div class="pagelist"><{$page}></div></td>
+      </tr>
+    </table>
+</div>
+<div class="panel admin-panel margin-top">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>回复内容</strong></div>
+    <table class="table table-hover text-center" id="tablelist">
+      <tr>
+        <th >ID</th>
+        <th>发布时间</th>
+        <th width="20%">内容</th>
+        <th >用户名</th>
+        <th >状态</th>
+        <th>操作</th>
+      </tr>
+      <volist name="reply" id="vo">
+        <tr>
+          <td><{$vo.id}></td>
+          <td><{$vo.time|date='Y-m-d H:i:s',###}></td>
+          <td width="10%"><{$vo.content}></td>
+          <td><{$vo.username}></td>
+          <td>
+            <if condition="$vo.state eq 2">隐藏</font>
+            <else />显示</font>
+            </if>
+          </td>
+          <td><div class="button-group"> 
+            <a class="button border-green" href='<{:U("look?id=$vo[id]")}>'><span class="icon-edit"></span>详情</a></font>
+            <if condition="$vo.state eq 2"><a class="button border-main" href='<{:U("editreply?id=$vo[id]")}>'><span class="icon-edit"></span>显示</a></font>
+            <else /><a class="button border-red" href='<{:U("editreply?id=$vo[id]")}>'><span class="icon-edit"></span>隐藏</a></font>
+            </if>
+          </div>
+          </td>
+        </tr>
+    </volist>
+
+    </table>
+</div>
+</body></html>

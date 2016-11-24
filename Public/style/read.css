@@ -1,0 +1,118 @@
+body{padding:0 0 20px; margin:0; background:#e4ebf1; font-size:12px; line-height:14px; color:#333}
+form, ul, ol, h1, h2, h3, h4, h5, h6, p{margin:0; padding:0}
+input, textarea, select, button{font-size:12px}
+img{border:none}
+em{font-style:normal}
+cite, small, address{font-size:12px; font-style:normal; color:#999}
+a{color:#2b7ca3; text-decoration:none}
+a:hover{color:#f60; text-decoration:none}
+button{border:none; background:url(/image/bt2.gif) no-repeat; width:75px; height:25px; color:#fff; cursor:pointer}
+p{word-break:break-all; word-wrap:break-word}
+
+.box{margin:10px 20px 0px 20px; overflow:auto}
+* html .box{height:1%}
+
+#mainBox{position:relative; overflow:visible; text-align:center}
+
+#main{padding-right:0px; WIDTH:950px; text-align:left}
+#mainok{WIDTH:950px; text-align:left; margin:0 auto}
+
+#location{float:left; margin-top:5px}
+#bt1{float:right}
+#bt1 span{float:left; margin-left:5px; background:url(/image/bt6.gif) right 0 no-repeat; padding-right:10px}
+#bt1 span a{float:left; color:#2c6a99; background:url(/image/bt6.gif) 0 0 no-repeat; height:18px; padding:6px 0 0 10px}
+
+#seting{border:#c9d1f2 1px solid; padding:8px; background:#fff}
+#seting div{float:left; margin-right:15px}
+#fontColor{background:url(/image/fontColor.gif) 96px 0 no-repeat}
+#seting p{float:left; margin:2px 10px 0 0}
+#seting .righttxt{float:right; margin:0px}
+#fontColor span{width:15px; height:0; overflow:hidden; margin-right:3px; padding-top:15px; float:left; cursor:pointer}
+#fontSize span{float:left; margin-right:5px; text-decoration:underline; cursor:pointer}
+
+#main h1{display:none; font-size:28px; padding:20px 20px 40px; color:#000; text-align:center; font-family:"¿¬Ìå_GB2312"}
+#content{line-height:155%; font-size:16px; padding:0}
+#content table{width:100%; color:#000}
+#content div.divimage{text-align:center}
+#tcn{font-size:28px; font-weight:bold; padding:20px 20px 40px; color:#000; text-align:center; font-family:"¿¬Ìå_GB2312"}
+
+#bt3{WIDTH:246px; margin:20px auto; overflow:auto; text-align:center}
+#bt3 a{margin:0 10px 5px 0; float:left; width:72px; height:18px; text-align:center; padding-top:6px; background:url(/image/bt7.gif) 0 bottom no-repeat; color:#333}
+
+#bt4{border-top:#c2d4e1 1px solid; padding:10px 0}
+#bt4 ul{list-style:none; margin:0 auto; width:730px; height:24px; overflow:hidden}
+#bt4 li{float:left; border-left:#ccc 1px solid; margin-left:-1px; padding:0 10px}
+
+#topBar{height:30px; background:url(/image/topBar_bg.gif) 0 bottom repeat-x}
+#topBar p{display:inline; float:left; margin:4px 10px 0 10px; background:url(/image/logo2.gif) no-repeat; width:135px; height:26px}
+#topBar p a{display:block; height:0; font-size:0; overflow:hidden; padding-top:17px}
+#topBar ul{margin-top:8px; float:left; list-style:none; overflow:hidden}
+#topBar ul li{float:left; padding:0 9px; border-left:#ddd 1px solid; margin-left:-1px}
+#topBar a{color:#666; text-decoration:none}
+#topBar a:hover{color:#f60}
+#topBar ul #m_channel{background:url(/image/12.gif) right center no-repeat; padding-right:10px; margin-right:10px}
+#channel_list{padding:10px; background:url(/image/head_float.gif) no-repeat; width:180px; position:absolute; border-bottom:#ddd 1px solid; top:30px; left:192px}
+#channel_list a{float:left; width:33%; margin:4px 0; color:#666; text-decoration:none}
+#topBar div{display:inline; float:right; margin:7px 10px 0 0}
+#topBar div span{margin-left:4px}
+#m_member{background:url(/image/12.gif) right center no-repeat; padding-right:12px}
+#mm_member{font-size:12px; background:url(/image/head_float.gif) right top no-repeat; width:78px; position:absolute; padding:10px 1px 5px; border-bottom:#ddd 1px solid; top:30px; right:40px}
+#mm_member a{display:block; padding:4px 0; text-align:center; color:#666; text-decoration:none}
+#mm_member a:hover{background:#f5f5f5}
+
+#menu2{border-top:#ebcdb8 1px solid; height:30px; background:url(/image/topBar_bg.gif) 0 bottom repeat-x}
+#menu2 ul{width:435px; margin:8px auto 0; list-style:none; position:relative}
+#menu2 ul li{float:left; padding:0 9px; border-left:#ddd 1px solid}
+#menu2 ul #m_home{border:none}
+#menu2 a{color:#666; text-decoration:none}
+#menu2 a:hover{color:#f60}
+#menu2 ul #m_channel2{background:url(/image/12.gif) right center no-repeat; padding-right:10px; margin-right:10px}
+#channel_list2{padding:10px; background:url(/images/head_float.gif) no-repeat; width:180px; position:absolute; border-bottom:#ddd 1px solid; top:25px; left:34px}
+#channel_list2 a{float:left; width:33%; margin:4px 0; color:#666; text-decoration:none}
+
+#copyright{width:950px; text-align:center; line-height:18px; margin:10px auto}
+
+#login{position:absolute; width:100%; border-top:#98c6e6 1px solid; height:30px; background:#e3eff7; overflow:hidden}
+#login div{width:950px; padding:2px 0; margin:0 auto; border-top:#fff 1px solid}
+#login p{float:left; padding-top:5px; margin-top:2px}
+#login form{float:right}
+
+#floatBoxBg{filter:alpha(opacity=50); opacity:0.5; width:100%; height:100%; background:#000; position:absolute; top:0; left:0}
+.floatBox{position:absolute; top:50px; left:40%; padding:5px; background:url(/image/float_bg.png); width:400px}
+.floatBox .title{height:25px; padding:7px 10px 0; background:url(/image/float_title.gif) repeat-x}
+.floatBox .title h4{float:left; color:#fff; font-size:16px; line-height:18px}
+.floatBox .title span{float:right; width:15px; height:0; padding-top:15px; font-size:0; overflow:hidden; background:url(/image/10.gif) center 4px no-repeat; cursor:pointer}
+.floatBox .content{padding:20px 15px; background:#fff}
+.floatBox button{margin-right:5px}
+
+body .floatFlower, body .floatEgg, body .floatVip{width:300px}
+.floatFlower p, .floatEgg p, .floatVip p{height:40px; padding-left:70px; line-height:20px; background:url(/image/bt2.gif) 20px -92px no-repeat}
+.floatFlower p strong, .floatEgg p strong, .floatVip p strong{display:block; color:#c00; font-size:14px}
+.floatFlower form, .floatEgg form, .floatVip form{margin:20px 0 0 70px}
+.floatFlower form label, .floatEgg form label, .floatVip form label{display:block; margin-bottom:10px}
+.floatEgg p{background:url(/image/bt2.gif) 20px top no-repeat}
+.floatVip p{background:url(/image/bt2.gif) 20px bottom no-repeat}
+
+.floatMsg .content div{margin-top:10px; text-align:right}
+
+.style1{border:1px solid #F5D3C6; padding:0 0 20px; width:241px; height:230px; overflow:hidden}
+.style1 h4{background:url(/image/title_bg1.gif) repeat-x 0 bottom; color:#666; font-size:14px; margin-bottom:10px; padding:8px 10px}
+.style1 ul{list-style-image:none; list-style-position:outside; list-style-type:none; margin:0 10px; overflow:auto}
+* html .style1 ul{height:auto}
+.tabs ul{background:url(/image/icon_list.gif) no-repeat 10px 11px; height:190px; list-style-image:none; list-style-position:outside; list-style-type:none; overflow:hidden; padding:10px 10px 10px 32px}
+.tabs ul li{height:20px; overflow:hidden}
+.tabs ul li a{color:#863D02}
+.tabs ul li cite{float:right; font-family:Arial,Helvetica,sans-serif; font-size:10px}
+ .skin0{ position:absolute;  width:220px;  cursor:default;  display:none;  font-family:Verdana}
+.skin1{ position:absolute;  width:220px;  cursor:default;      font:menutext;     border:1 outset buttonhightlight}
+.menuitems{    padding-left:6px;     padding-top:4px;     padding-bottom:4px;     margin-top:1px;     margin-bottom:1px;     margin-left:1px;     margin-right:1px;     font-size:12px}
+.itemshovor{    position:relative;     padding-left:5px;     padding-top:4px;     padding-bottom:4px;     margin-top:1px;     margin-bottom:1px;     margin-left:1px;     margin-right:1px;     background:url(/image/bg-move.gif) #cfe8f8; 0 z-index:7;  font-size:12px}
+
+.hr{ padding-left: 5px;  padding-right:5px;  size:1px}
+
+.countmy{ display:none}
+.bottomk{ border-top:#c2d4e1 1px solid; padding-top:15px; line-height:20px; CLEAR:both; MARGIN:0px auto 8px; WIDTH:950px;  ZOOM:1; text-align:center; font-weight:normal; font-size:12px}
+.good_ad{width:800px; text-align:center}
+.spanclass{visibility:hidden; overflow:hidden}
+.shuqianDiv{margin-top:50px; position:absolute; line-height:90px; font-size:0px; z-index:1000; text-align:center}
+.cpymy{font-size:14px; text-align:center}

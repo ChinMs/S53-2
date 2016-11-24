@@ -1,0 +1,29 @@
+<extend name="Mybook/mybook"/>
+<block name="main">
+    <div class="books-container"><!--这里是添加收藏的图书的-->
+              <if condition="$books eq null">
+                <div class="no-item-bg">
+                    <a target="_blank" href=""><div class="select-book-btn"></div></a>
+                </div>
+              </if>
+                <foreach name="books" item="v">
+                <div class="one-book-item" <if condition="$v eq null">style="display:none"</if>>
+                    <div class="cover-img-container ">
+                        <a title="<{$v.bookname}>" target="_blank" href=""><img class="book-cover" width="142" height="190" src="__PUBLIC__/images/Admin/Books/<{$v.picname}>"></a>
+                    </div>
+                    <span class="book-name">
+                        <a title="<{$v.bookname}>" target="_blank" href=""><{$v.bookname}></a>
+                    </span>
+                    <span class="book-copr">
+                    </span>
+                    <span class="book-state">
+                        <if condition="$v.state eq '0'">已收藏的</if>
+                    </span>
+                    <a class="del-book-btn" title="删除" href="<{:U('Mybook/delShelf',array('book_id'=>$v['id'],'user_id'=>'1'))}>"><img class="book-dele-icon" src="__PUBLIC__/images/delbook.png"></a>
+                </div>
+            </foreach>
+            </div><!--books-container-->
+            <div id="page">
+                <{$page}>
+            </div>
+</block>

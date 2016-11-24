@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title><{$title}></title>
+    <link rel="stylesheet" href="__PUBLIC__/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/my.css">
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/pintuer.js"></script>  
+</head>
+<body>
+    <div class="panel-head"><strong><{$title}></strong>
+   <form action="<{:U('Admin/page')}>" method="post">
+<div class="padding border-bottom">
+      <ul class="search" style="padding-left:10px;">
+        <li> <a class="button border-main icon-plus-square-o" href="add.html" data-toggle="modal" data-target="#myModal"> 添加内容</a> </li>
+        <li>搜索：</li>
+        <li>
+          <input type="text" placeholder="请输入搜索关键字" name="username" class="input" style="width:250px; line-height:17px;display:inline-block" />
+          <button class="button border-main icon-search" type="submit" > 搜索</button></li>
+      </ul>
+    
+   </form>
+    </div> 
+    <block name="main">
+       
+        <table class="table table-hover mt20 table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>手机号</th>
+                <th>邮箱</th>
+                <th>等级</th>
+                <th>添加时间</th>
+                <th>登录时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+                <volist name="list" id="vo">
+            <tr>
+                <td><{$vo.id}></td>
+                <td><{$vo.username}></td>
+                <td><if condition="$vo.sex eq '0'">女
+                    <elseif condition="$vo.sex eq '1' " />男
+                    <else />保密
+                    </if></td>
+                <td><{$vo.phone}></td>
+                <td><{$vo.email}></td>
+                <td><if condition="$vo.level eq '0'">超级管理员
+                    <else />技术人员
+                    </if></td>
+                <td><{$vo.addtime|date='Y-m-d H:i:s',###}></td>
+                <td><{$vo.logtime}></td>
+                <td><if condition="$vo.state eq 1">正常
+                    <else />禁用
+                    </if></td>
+                <td><a href="<{:U('Admin/edit',array('id'=>$vo['id']))}>" class="btn btn-primary">修改</a>
+                    <a href="<{:U('Admin/del',array('id'=>$vo['id']))}>" class="btn btn-danger">删除</a>
+                    <a href="<{:U('Admin/rolelist',array('id'=>$vo['id']))}>" class="btn btn-danger">分配角色</a>
+                </td>
+            </tr>
+        </volist>
+	</table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<extend  name="Index/index"/>
+<block name="main">
+    <style>
+        #box{
+            width: 70%;
+            background: #FAF7ED ;
+            font-size: 18px;
+            line-height: 2;
+            margin: 0px auto;
+            padding: 20px;
+            font-family: 微软雅黑, "Microsoft YaHei";
+        }
+        a{
+            font-size: 18px;
+        }
+    </style>
+        <div style="margin:auto;width:90%;background:#EDE8D5">
+            <pre id="aa">
+            <div id="box">
+<{$data}> 
+        <p style="text-align: center;height: 60px;">            
+<a href='#aa' onclick="zj('sub')">上一章</a>       <a href='#aa' onclick="zj('add')">下一章</a>
+        </p>
+            </div>    
+            </pre>
+        </div>
+        <script>
+            var page = <{$page}>;
+            var id = <{$id}>;
+            var p = page;
+            var url = window.location.href; 
+            url.indexOf("chapternum/");
+            strs = url.split("chapternum/"); 
+            strs = strs[1].split(".html"); 
+            var chapternum = Number(strs[0]);
+            function zj(state){
+                if (state=='add') {
+                    p +=1 ;
+                } else{
+                    p -= 1;
+                }
+                if(p==0) {p = 1;return;}
+                if(p>chapternum) {p=chapternum;return;}
+                $.ajax({
+                    type:'get',
+                    url:'<{:U('Detail/look')}>',
+                    data:'id='+id+'&&p='+p,
+                    success:function(data){
+                        var $data = $(data);
+                        var word = $data.find("#box");
+                        $('#box').html(word);
+                    },
+                })
+            }
+        </script>
+</block>

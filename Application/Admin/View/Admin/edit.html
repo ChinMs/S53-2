@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="__PUBLIC__/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/my.css">
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/pintuer.js"></script>  
+     <link rel="stylesheet" href="css/pintuer.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/pintuer.js"></script>  
+</head>
+<block name="breadcrumb-02">
+    <h1>
+        后台用户管理
+        <small>
+            <i class="icon-double-angle-right"></i>
+             用户修改
+        </small>
+    </h1>
+</block>
+<block name="main">
+<div class="panel admin-panel">
+  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 网站信息</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="<{:U('Admin/update')}>">
+      <input type="hidden" name="id" value="<{$data.id}>">
+      <div class="form-group">
+        <div class="label">
+          <label>用户名：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="username" value="<{$data.username}>" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>性别：</label>
+        </div>
+        <div class="field">
+          <input type="radio" name="sex" value="0" <if condition="$data.sex eq '0'">checked</if>>女
+        <input type="radio" name="sex" value="1" <if condition="$data.sex eq '1'">checked</if>>男
+        <input type="radio" name="sex" value="2" <if condition="$data.sex eq '2'">checked</if>>保密<br><br>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>手机号：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input w50" name="phone" value="<{$data.phone}>" />
+        </div>
+      </div>
+      <div class="form-group" style="display:none">
+        <div class="label">
+          <label>邮箱：</label>
+        </div>
+        <div class="field">
+          <input type="text" class="input" name="email" value="<{$data.email}>" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>等级：</label>
+        </div>
+        <div class="field">
+            <input type="radio" name="level" value="0" <if condition="$data.level eq '0'">checked</if>>超级管理员
+        <input type="radio" name="level" value="1" <if condition="$data.level eq '1'">checked</if>>技术人员
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>状态：</label>
+        </div>
+        <div class="field">
+          <input type="radio" name="state" value="0" <if condition="$data.state eq '0'">checked</if>>禁用
+        <input type="radio" name="state" value="1" <if condition="$data.state eq '1'">checked</if>>启用
+          <div class="tips"></div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</block>

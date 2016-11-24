@@ -1,0 +1,107 @@
+*{margin:0;padding:0;list-style:none;}
+select,input {font-size:12px;}
+body{font-size:12px;color:#565656;font-family:"ËÎÌå",Arial;background:#fff;}
+img {border:0;}
+.clear{clear:both;font-size:1px;line-height:1px;}
+
+a{color:#565656;text-decoration:none;}
+a:hover {color:#ff4c39;text-decoration:underline;}
+
+em {font-style:normal;color:#c42805;}
+em a {color:#c42805;}
+
+.font1 { color: #2c7897; }
+.font1 a:link { color: #2c7897; text-decoration: none ; }
+.font1 a:visited { color: #2c7897; text-decoration: none ; }
+.font1 a:hover { color: #ff4c39; text-decoration: underline ; }
+
+.font2 { color: #d12828; }
+.font2 a:link { color: #d12828; text-decoration: none ; }
+.font2 a:visited { color: #d12828; text-decoration: none ; }
+.font2 a:hover { color: #ff4c39; text-decoration: underline ; }
+
+.font3 { color: #818181; }
+.font3 a:link { color: #818181; text-decoration: none ; }
+.font3 a:visited { color: #818181; text-decoration: none ; }
+.font3 a:hover { color: #ff4c39; text-decoration: underline ; }
+
+.bold { font-weight:bold;}
+
+.fontg_18px { line-height:18px;}
+.fontg_20px { line-height:20px;}
+.fontg_22px { line-height:22px;}
+.fontg_24px { line-height:24px;}
+
+
+.ls_title { background:url(../images/title_tbgs.gif) no-repeat; line-height:19px; color:#fff; padding:4px 8px}
+.vip_banner { width:960px; height:157px; margin:auto; }
+.vip_banner .l { float:left; width:272px; height:157px; background: url(../images/vip_banner_l.gif) no-repeat; }
+.vip_banner .c { float:left; width:455px; height:157px; background: url(../images/vip_banner_c.gif) no-repeat; }
+.vip_banner .r { float:left; width:232px; height:157px; background: url(../images/vip_banner_r.gif) no-repeat; }
+.vip_banner ul { margin-top:42px; padding:0px; list-style-type:none; }
+.vip_banner li { width:195px; height:84px; background:url(../images/reg_vip_a.gif) no-repeat; cursor:pointer }
+.vip_banner li:hover { width:195px; height:84px; background:url(../images/reg_vip_b.gif) no-repeat; cursor:pointer }
+
+ /*vip nav*/
+.tj_table { width:960px; margin:10px auto auto auto; }
+.tj_p_box { width:658px; height:354px; background:url(../images/t_tjbg.gif) no-repeat; float:left; }
+
+.natxt_vip{ width:630px; margin:10px auto 0px auto}
+.natxt_vip .img_banner{float:left; margin-top:35px; clear:both; border:#ebebeb 1px solid; padding:7px; background:#fff; width:183px; height:259px;}
+.natxt_vip ul{list-style-type:none; float:left; width:387px; margin:15px 0px 0px 15px;}
+.natxt_vip ul li{ float:left; width:338px; height:88px; padding:12px 0px 0px 20px; margin:0px; }
+.natxt_vip ul li.current { background: url(../images/top_navtitle_bg.gif) no-repeat; width:387px;height:88px; }
+.natxt_vip ul li.current a{ text-decoration: none ;}
+
+.natxt_vip ul li h1 { font-size:18px; font-family:"ºÚÌå"; color:#c32903; font-weight:normal; padding:0px; margin:0px;}
+.natxt_vip ul li h1 a {color:#c32903}
+.natxt_vip ul li h1 a:hover { text-decoration: underline ; }
+.natxt_vip ul li .more_b { line-height:24px;width:358px; padding-top:1px;}
+
+
+
+/*past_vip*/
+.past_vip{width:296px;float:right;margin:0px;display:inline;padding-bottom:8px; border:1px solid #f2f2f2;background:#fffcf3;}
+.past_vip h3{width:260px;margin:16px auto 0;padding:10px 5px 0 5px;height:18px; text-align:right;font-size:12px;font-weight:normal; border-bottom:1px solid #e5e5e3; background:url(../images/timett.gif) no-repeat left top;}
+.past_vip h3 a,.past h3 a:hover{color:#e99e41;}
+.past_vip ul{width:270px;margin:0 auto;padding-top:10px;}
+.past_vip ul li{width:260px; padding:5px; line-height:18px; background:url(../images/line.gif) repeat-x left bottom;}
+.past_vip ul li img{margin:0 5px 0 3px;}
+.past_vip ul li span{color:#b2b2b2;}
+.past_vip ul li a{color:#2e6291;margin:0 3px;}
+.past_vip ul li.nobg{background:none;}
+
+
+
+
+.box_nav { clear:both; width:958px; margin:10px auto; background:#f8f8f8 url(../images/title_book.gif) top left no-repeat; border:#f3f1f2 solid 1px; }
+.box_nav .menu { height:34px; background:url(../images/menu_unline.gif) repeat-x bottom; margin:20px auto auto auto; width:923px; }
+.box_nav .menu ul{ width:700px; height:34px; margin-left:190px; display:inline; padding-left:4px; float:left; }
+.box_nav .menu li{width:109px;height:34px;float:left;text-align:center;margin-left:-1px; line-height:34px;cursor:pointer; background:url(../style/images/nbline.gif) no-repeat 0 center; font-size:14px;}
+.box_nav .menu li.current{ background:url(../images/box_nav_a.gif) no-repeat; color:#9c3a3a ;}
+.box_nav .nav_k { width:913px; border:#dbdbdb solid 1px; border-top:none;  background:#fff; margin:auto; clear:both; padding:10px 0px 20px 8px;}
+
+.book_li { float:left; width:258px; height:136px; border:#e3e3e3 solid 1px; margin:10px 0px 0px 10px;  padding:14px;  }
+.book_li .cover_img { float:left;width:80px; height:112px; padding:4px; background:#FFF; border:#e3e3e3 solid 1px;}
+.book_li .jieshao { float:left; width:158px; padding-left:8px; word-wrap:break-word; word-break:break-all;}
+.book_li h2 { font-size:14px; font-weight:bold; color:#4e4e4e; padding:5px 0px}
+.book_li p { line-height:18px;}
+.book_li span a{ color:#2e6291 }
+.book_li span a:hover{ color:#e99e41 }
+
+#list_fy { margin:20px auto; height:35px; width:90%; }
+#list_fy ul { padding:0px; margin:0px; list-style-type:none;}
+#list_fy li { border:#dbdbdb solid 1px; background:#FFF; line-height:30px; float:left; padding:0px 10px; margin-left:11px; cursor:pointer; }
+#list_fy a{ color:#616161;}
+
+#list_fy li span { color:#616161; float:left; padding:0px 10px;}
+#list_fy li span:hover{ float:left; padding:0px 10px; cursor:pointer;}
+#list_fy li .hover{ color:#FFF; background:#000; float:left; padding:0px 10px; cursor:pointer;}
+#list_fy li input{ border:#CCCCCC solid 1px; width:30px; margin:0px 3px; background:#FFF;}
+
+.hj_tag { clear:both; width:918px; margin:10px auto; padding:40px 20px 10px 20px; border:#eee solid 1px; background:url(../images/hot_tag.gif) no-repeat 15px 5px; line-height:1.5em}
+
+
+/*footer*/
+.footer{width:960px;margin:10px auto;padding:15px 0;line-height:25px; text-align:center;font-family:Arial;background:url(../images/footer.gif) repeat-x left top; clear:both }
+.footer a{margin:0 10px;}

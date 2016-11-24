@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="expires" CONTENT="0"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="Cache-Control:no-cache, no-store, must-revalidate, max-age=0"> 
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<style>
+body { margin:0px; padding:0px; font-size:12px; font-family:"宋体",Arial; background:#fffcf3;}
+a{color:#565656;text-decoration:none;}a:hover {color:#565656;text-decoration:underline;}em {font-style:normal;color:#c42805;}em a {color:#c42805;}
+.lidiv{ padding-top:10px;}
+ul{width:270px;margin:0; padding:0px; list-style:none;}
+ul li{width:270px; height:22px;padding-top:7px; background:url(/style/images/line.gif) repeat-x left bottom;}
+ul li img{margin:0 5px 0 3px;}
+ul li span{color:#b2b2b2;}
+ul li a{color:#2e6291;margin:0 3px;}
+ul li.nobg{background:none;}
+</style>
+<script language="javascript">
+
+document.domain='localhost';
+
+</script>
+</head>
+
+<body>
+			<script language="javascript" src="http://stat.hjsm.tom.com/dowhat/uat.php?act=read"></script>
+            <div class="lidiv">
+            <ul id="mq_list" style="height:90px; overflow:hidden" onMouseOver="iScrollAmount=0" onmouseout="iScrollAmount=1">
+                        
+			<script language="javascript">
+			function subString(str, len, hasDot) 
+			{ 
+				var newLength = 0; 
+				var newStr = ""; 
+				var chineseRegex = /[^\x00-\xff]/g; 
+				var singleChar = ""; 
+				var strLength = str.replace(chineseRegex,"**").length; 
+				for(var i = 0;i < strLength;i++) 
+				{ 
+					singleChar = str.charAt(i).toString(); 
+					if(singleChar.match(chineseRegex) != null) 
+					{ 
+						newLength += 2; 
+					}     
+					else 
+					{ 
+						newLength++; 
+					} 
+					if(newLength > len) 
+					{ 
+						break; 
+					} 
+					newStr += singleChar; 
+				} 
+				 
+				if(hasDot && strLength > len) 
+				{ 
+					newStr += hasDot; 
+				} 
+				return newStr; 
+			}
+			
+			for (var i = 0; i < 20; i++) {
+				if (typeof(doWhat[i]) != 'undefined' && typeof(doWhat[i]['act']) != "undefined") {
+
+					try{					
+						var rgExp = /^(<.*>)(.*)(<\/a>)$/;
+						if (rgExp.test(doWhat[i]['book'])) {
+							var bookExp = doWhat[i]['book'].match(rgExp);
+							bookCut = bookExp[2];
+							//if (bookCut.length > 7) {
+								//bookCut = bookCut.substr(0,7) + "..";
+							//}
+							bookCut = subString(bookCut,10,'..');
+							bookCut = bookExp[1] + bookCut + bookExp[3];
+						}else{
+							bookCut = doWhat[i]['book'];
+						}
+						bookCut = bookCut.replace(".htm", ".htm?source=HJSM_SHOUYE_GQJFZ" );
+						var userCut = doWhat[i]['u'];
+						
+						userCut = subString(userCut,8,'..');
+						//if (userCut.length > 10) {
+							//userCut = userCut.substr(0,10) + "..";
+						//}
+					
+						document.write('<li><img src="' + doWhat[i]['pic'] + '" alt="' + doWhat[i]['act'] + '" />' + userCut + ' ' + doWhat[i]['act'] + bookCut + doWhat[i]['ex_act'] + ' <span>' + doWhat[i]['time'] + '</span></li>');
+				 	}catch(err){} 
+				}
+			}
+			</script>
+            
+			</ul>
+            </div>
+          
+<script anguage="javascript">
+var oMarquee = document.getElementById("mq_list"); //滚动对象
+var iLineHeight = 29; //单行高度，像素
+var iLineCount = 10; //实际行数
+var iScrollAmount = 1; //每次滚动高度，像素
+function run() {
+oMarquee.scrollTop += iScrollAmount;
+if ( oMarquee.scrollTop == iLineCount * iLineHeight )
+oMarquee.scrollTop = 0;
+if ( oMarquee.scrollTop % iLineHeight == 0 ) {
+window.setTimeout( "run()", 2000 );
+} else {
+window.setTimeout( "run()", 1 );
+}
+}
+oMarquee.innerHTML += oMarquee.innerHTML;
+window.setTimeout( "run()", 2000 );
+</script>
+  <script src="http://news.tom.com/v2008.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title><{$title}></title>
+    <link rel="stylesheet" href="__PUBLIC__/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/my.css">
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/pintuer.js"></script>  
+</head>
+<body>
+    <div class="panel-head"><strong><{$title}></strong>
+   <form action="<{:U('Admin/page')}>" method="get">
+<div class="padding border-bottom">
+      <ul class="search" style="padding-left:10px;">
+        <li> <a class="button border-main icon-plus-square-o" href="add.html" data-toggle="modal" data-target="#myModal"> 添加内容</a> </li>
+        <li>搜索：</li>
+        <li>
+          <input type="text" placeholder="请输入用户名" name="username" class="input" style="width:250px; line-height:17px;display:inline-block" />
+          <button class="button border-main icon-search" type="submit" > 搜索</button></li>
+      </ul>
+    
+   </form>
+    </div> 
+    <block name="main">
+       
+        <table class="table table-hover mt20 table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>手机号</th>
+                <th>邮箱</th>
+                <th>等级</th>
+                <th>添加时间</th>
+                <th>登录时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+                <volist name="list" id="vo">
+            <tr>
+                <td><{$vo.id}></td>
+                <td><{$vo.username}></td>
+                <td><if condition="$vo.sex eq '0'">女
+                    <elseif condition="$vo.sex eq '1' " />男
+                    <else />保密
+                    </if></td>
+                <td><{$vo.phone}></td>
+                <td><{$vo.email}></td>
+                <td><if condition="$vo.level eq '0'">超级管理员
+                    <else />技术人员
+                    </if></td>
+                <td><{$vo.addtime|date='Y-m-d H:i:s',###}></td>
+                <td><{$vo.logtime|date='Y-m-d H:i:s',###}></td>
+                <td><if condition="$vo.state eq 1">启用
+                    <else />禁用
+                    </if></td>
+                <td><a href="<{:U('Admin/edit',array('id'=>$vo['id']))}>" class="btn btn-primary">修改</a>
+                    <a href="<{:U('Admin/del',array('id'=>$vo['id']))}>" class="btn btn-danger">删除</a>
+                    <a href="<{:U('Admin/rolelist',array('id'=>$vo['id']))}>" class="btn btn-danger">分配角色</a>
+                </td>
+            </tr>
+        </volist>
+        </tbody>
+        </table>
+    </block>
+    </div>
+</div>
+
+
+
+    <div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">添加用户</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+            <div class="form-group">
+            <form action="<{:U('Admin/insert')}>" method="post">
+                <tr>
+                    <th>用户名:</th>
+                <td><input type="text" class="form-control" aria-describedby="sizing-addon1" name="username" placeholder="5-50个字符"></td>
+                </tr>
+                <tr>
+                    <th>密码:</th>
+                <td><input type="password" class="form-control" aria-describedby="sizing-addon1" name="password" placeholder="8-32个字符"></td>
+                </tr>
+                <tr>
+                    <th>邮箱地址:</th>
+                <td><input type="email" class="form-control" aria-describedby="sizing-addon1" name="email" placeholder="输入邮箱地址"></td>
+                </tr>
+                <tr>
+                    <th>性别:</th>
+                    <td>
+                        <input type="radio" name="sex" value="1">男
+                        <input type="radio" name="sex" value="0" checked>女
+                        <input type="radio" name="sex" value="2" >保密</td>
+                </tr>
+                <tr>
+                    <th>电话号码:</th>
+
+                <td><input type="text" class="form-control" aria-describedby="sizing-addon1"  name="phone" placeholder="输入电话号码"></td>
+                </tr>
+                <tr>
+                    <td >
+                        <img class="margin-left" width="152" height="100" title='看不清楚?换一张' src="<{:U('Public/verify')}>" name='verifyImg' onclick="this.src='<{:U('Public/verify')}>'">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" aria-describedby="sizing-addon1" name="code">
+                    </td>
+                </tr>
+            </div>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="submit" class="btn btn-primary">添加</button>
+          </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+    <script src="__PUBLIC__/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+</body>
+</html>

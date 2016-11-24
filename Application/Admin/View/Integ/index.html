@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>  
+    <link rel="stylesheet" href="__PUBLIC__/css/pintuer.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/admin.css">
+    <!-- <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="__PUBLIC__/my.css">
+    <script src="__PUBLIC__/js/jquery.js"></script>
+    <script src="__PUBLIC__/js/pintuer.js"></script>  
+</head>
+<body>
+<form method="get" action="<{:U('search')}>" id="listform">
+<div class="panel admin-panel">
+    <div class="panel-head"><input type="text" placeholder="请输入用户名" name="username" class="input" style="width:250px; line-height:17px;display:inline-block" />
+          <button class="button border-main icon-search" type="submit" > 搜索</button></div>
+    <div class="container" style="    width: 1050px;">
+        <table class="table table-hover mt20 table-bordered table-hover">
+            <tr style="text-align:center;">
+                <th>Id</th>
+                <th>用户名</th>
+                <th>积分变化时间</th>
+                <th>状态</th>
+                <th>积分</th>
+                <th>操作</th>
+            </tr>
+            <volist name="data" id="vo">
+            <tr style="text-align:center;">
+                <td><{$vo.id}></td>
+                <td><{$vo.username}></td>
+                <td><{$vo.buytime|date="Y-m-d H:i:s",###}></td>
+                <td><if condition="$vo.state eq '1'">减少
+                    <else />增加
+                    </if>
+                </td>
+                 <td><{$vo.integ}></td>
+                <td>
+                    <div class="button-group"> <a class="button border-main" href='<{:U("del?id=$vo[id]")}>'><span class="icon-edit"></span> 删除记录</a>
+                    </div>
+                </td>
+            </tr>
+            </volist>
+            <tr>
+                <td colspan="12"><div class="pagelist"><{$page}></div></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</form>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+
+    function user(page){
+        var p = page;
+        $.ajax({
+            type:'get',
+            url:'<{:U('Integ/index')}>',
+            data:"p="+p,
+            success:function(data){
+                var $data = $(data);
+                var target_div = $data.find("#tablelist");
+                $('#tablelist').html(target_div);
+            },
+        })
+    }
+//搜索
+function changesearch(){    
+        
+}
+
+</script>
+</body>
+</html>

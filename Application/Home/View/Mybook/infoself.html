@@ -1,0 +1,260 @@
+<extend name="Mybook/mybook"/>
+<block name="info">
+          <div class="right-main-container" data-csrf_sign="1310557914">
+            <div class="books-title-select">
+              <div class="books-part-btns">
+                <div class="one-part-btn bg-hide" id="all">
+                  <a href="javascript:">个人基本资料</a>
+                </div>
+              </div>
+            </div>
+            <div class="books-container"><!--这里是个人信息-->
+            <foreach name="infomation" item="vinfo">
+                <div class="infomain">
+                    <div class="infoline">
+                        <div class="userimg">
+                            <span class="infomation">我的头像：</span>
+                            <a class="theme-img" href="javascript:" title="点击修改头像">
+                                <if condition="$vinfo.picname eq ''">
+                                    <img width="100" height="100" src="__PUBLIC__/images/x.jpg" alt="">
+                                    <else />
+                                    <img width="100" height="100" src="__PUBLIC__/images/user_img/<{$vinfo.picname}>" alt="">
+                                </if>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="userid">
+                            <span class="infomation">我的账户ID：</span>
+                            <span><{$vinfo.id}></span>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="username">
+                            <span class="infomation">账号昵称：</span>
+                            <span><{$vinfo.username}></span>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="truename">
+                            <span class="infomation">真实姓名：</span>
+                            <span><{$vinfo.name}></span>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="usersex">
+                            <span class="infomation">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+                            <span>
+                                <if condition="$vinfo.sex eq '1'">男
+                                    <elseif condition="$vinfo.sex eq '0'" />女
+                                    <else />保密
+                                </if>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="usertel">
+                            <span class="infomation">绑定手机：</span>
+                            <span>
+                                <if condition="$vinfo.phone eq ''">
+                                <a id="phone" href="javascript:void(0)">点击绑定手机号码</a>
+                                <else /><span id="show"><{$vinfo.phone}></span>
+                                </if>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="useremail">
+                            <span class="infomation">绑定邮箱：</span>
+                            <span><{$vinfo.email}></span>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="useremail">
+                            <span class="infomation">创建日期：</span>
+                            <span>
+                                <php>
+                                    echo date('Y-m-d', $vinfo['addtime']);
+                                </php>
+                            </span>
+                        </div>
+                    </div>
+                    </foreach>
+                    <div class="infoline">
+                    <div class="theme-popover">
+                        <div class="theme-poptit">
+                            <a href="javascript:;" title="关闭" class="close">×</a>
+                            <h3>更改头像</h3>
+                        </div>
+                            <div class="theme-popbod dform">
+                            <form class="theme-signin" name="loginform" action="<{:U('Mybook/upload', array('id'=>'1'))}>" method="post" enctype="multipart/form-data">
+                                <ol>
+                                    <li>
+                                        <strong>原头像:</strong>
+                                        <if condition="$infomation.picname eq ''">
+                                            <img width="100" height="100" src="__PUBLIC__/images/x.jpg" alt="">
+                                            <else />
+                                            <img width="100" height="100" src="__PUBLIC__/images/user_img/<{$infomation[0].picname}>" alt="">
+                                        </if>
+                                    </li>
+                                    <li>
+                                        <strong>上传头像:</strong>
+                                        <input type="text" size="20" name="upfile" id="upfile" class="ipt">
+                                        <input type="button" value="+浏览" onclick="path.click()" class="btn btn-primary">  
+                                        <input type="file" name="picname" id="path" style="display:none" onchange="upfile.value=this.value">
+                                    </li>
+                                    <li>
+                                        <input class="btn btn-primary" type="submit" name="submit" value="确认更改" />
+                                    </li>
+                                </ol>
+                            </form>
+                             </div>
+                    </div>
+                    <div class="theme-popover-mask"></div>
+                    </div>
+                    <div class="infoline">
+                        <div class="userchnage">
+                            <a class="btn btn-primary changed">修改信息</a>
+                        </div>
+                    </div>
+                    <div class="infoline">
+                        <div class="theme-popover1">
+                            <div class="theme-poptit1">
+                                <a href="javascript:;" title="关闭" class="close1">×</a>
+                                <h3>修改个人信息</h3>
+                            </div>
+                                <div class="theme-popbod dform">
+                                    <form class="theme-signin" action="<{:U('Mybook/changed')}>" method="post">
+                                    <foreach name="infomation" item="val">
+                                    <ol>
+                                        <li>
+                                            <strong>账号昵称:</strong>
+                                            <input type="text" class="ipt" name="username" value="<{$val.username}>">
+                                        </li>
+                                        <li>
+                                            <strong>真实姓名:</strong>
+                                            <input type="text" class="ipt" name="name" value="<{$val.name}>">
+                                        </li>
+                                        <li>
+                                            <strong>性别:</strong>
+                                            <input type="radio" name="sex" value="1" <if condition="$val.sex eq '1'">checked</if> />男
+                                            <input type="radio" name="sex" value="0" <if condition="$val.sex eq '0'">checked</if> />女
+                                            <input type="radio" name="sex" value="2" <if condition="$val.sex eq '2'">checked</if> />保密
+                                        </li>
+                                        <li>
+                                            <strong>邮箱地址:</strong>
+                                            <input type="email" class="ipt" name="email" value="<{$val.email}>">
+                                        </li>
+                                        <li>
+                                            <strong>修改密码:</strong>
+                                            <input type="password" class="ipt" name="password" value ="<{$val.password}>">
+                                        </li>
+                                        <li>
+                                            <input type="hidden" name="id" value="<{$val.id}>" />
+                                            <input class="btn btn-primary" type="submit" name="submit" value="确认修改" />
+                                        </li>
+                                    </ol>
+                                    </foreach>
+                                </form>
+                                </div>
+                        </div>
+                        <div class="theme-popover-mask1"></div>
+                    </div>
+                    <div class="infomation">
+                        <div class="theme-popover2">
+                            <div class="theme-poptit2">
+                                <a href="javascript:;" title="关闭" class="close2">×</a>
+                                <h3>绑定手机号码</h3>
+                            </div>
+                                <div class="theme-popbod dform">
+                                    <form action="<{:U('Mybook/addPhone')}>" class="theme-signin"  method="post">
+                                    <ol>
+                                        <li>
+                                            <strong>手机号码:</strong>
+                                            <input type="text"  class="ipt" name="phone" id="PHONE" maxlength="11" autocomplete="off" />
+                                            <span class="phone"></span>
+                                        </li>
+                                        <li>
+                                            <strong>验证码:</strong>
+                                            <input type="text" class="ipt" name="yzm">
+                                            <input type="button" class="btn btn-primary" id="getting" value="获取验证码" />
+                                            <input type="hidden" name="reyzm" id="reyzm" />
+                                        </li>
+                                        <li>
+                                            <input type="hidden" name="id" value="1" />
+                                            <input type="submit" class="btn btn-primary" value="提交" />
+                                        </li>
+                                    </ol>
+                                </form>
+                                </div>
+                        </div>
+                        <div class="theme-popover-mask2"></div>
+                    </div>
+                </div>
+            </div><!--books-container-->
+            <div id="page">
+            </div>
+          </div><!--right-main-container-->
+        <script>
+            jQuery(document).ready(function($) {
+            $('.theme-img').click(function(){
+                $('.theme-popover-mask').fadeIn(100);
+                $('.theme-popover').slideDown(200);
+            });
+            $('.theme-poptit .close').click(function(){
+                $('.theme-popover-mask').fadeOut(100);
+                $('.theme-popover').slideUp(200);
+            });
+            $('.changed').click(function(){
+                $('.theme-popover-mask1').fadeIn(100);
+                $('.theme-popover1').slideDown(200);
+            });
+            $('.theme-poptit1 .close1').click(function(){
+                $('.theme-popover-mask1').fadeOut(100);
+                $('.theme-popover1').slideUp(200);
+            });
+            $('#phone').click(function(){
+                $('.theme-popover-mask2').fadeIn(100);
+                $('.theme-popover2').slideDown(200);
+            });
+            $('.theme-poptit2 .close2').click(function(){
+                $('.theme-popover-mask2').fadeOut(100);
+                $('.theme-popover2').slideUp(200);
+            });
+        });
+        </script>
+        <script>
+            // 获取手机验证码
+            $('#getting').click(function(){
+            var values = $('#PHONE').val();
+            var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(17[0]{1})|(15[0-3]{1})|(15[5-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            if(values == ''){
+                $('.phone').css('color','red').html('请输入手机号码');
+                return false;
+            }
+            if (!myreg.test(values)){
+                $('.phone').css('color','red').html('请输入有效的手机号码');
+                return false;
+            }
+            $.post("<{:U('Mybook/message')}>", {param1:values}, function(data){
+                if(data){
+                    $('#reyzm').val(data);
+                    // console.log(data);
+                }
+            });
+            var btn = $(this);  
+            var count = 180;  
+            var resend = setInterval(function(){  
+                count--;  
+                if (count > 0){
+                    btn.val(count+"秒后可重新获取");  
+                    $.cookie("captcha", count, {path: '/', expires: (1/86400)*count});
+                }else {
+                    clearInterval(resend);  
+                    btn.val("获取验证码").removeAttr('disabled style');  
+                }  
+            }, 1000);  
+            btn.attr('disabled',true).css('cursor','not-allowed');
+        });
+        </script>
+</block> 
